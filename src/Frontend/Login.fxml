@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="618.0" prefWidth="722.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.LoginController">
+<AnchorPane prefHeight="618.0" prefWidth="732.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.LoginController">
    <children>
-      <ImageView fitHeight="630.0" fitWidth="300.0" layoutX="-8.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="630.0" fitWidth="310.0" layoutX="-8.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="Images/Image1.jpg" />
+            <Image url="Images/img1.jpg" />
          </image>
       </ImageView>
       <Label layoutX="309.0" layoutY="19.0" prefHeight="18.0" prefWidth="402.0" text="Electricity Billing System">
