@@ -41,12 +41,12 @@
          </font>
       </Button>
       <Label fx:id="isConnected" layoutX="390.0" layoutY="480.0" prefHeight="36.0" prefWidth="246.0" />
-      <Button layoutX="330.0" layoutY="544.0" mnemonicParsing="false" onAction="#Error" prefHeight="36.0" prefWidth="167.0" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="FORGOT PASSWORD?">
+      <Button layoutX="330.0" layoutY="544.0" mnemonicParsing="false" onAction="#error" prefHeight="36.0" prefWidth="167.0" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="FORGOT PASSWORD?">
          <font>
             <Font name="Berlin Sans FB" size="15.0" />
          </font>
       </Button>
-      <Button layoutX="554.0" layoutY="544.0" mnemonicParsing="false" onAction="#NewUser" prefHeight="36.0" prefWidth="152.0" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="NEW USER? SIGNUP">
+      <Button layoutX="554.0" layoutY="544.0" mnemonicParsing="false" onAction="#newUser" prefHeight="36.0" prefWidth="152.0" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="NEW USER? SIGNUP">
          <font>
             <Font name="Berlin Sans FB" size="15.0" />
          </font>

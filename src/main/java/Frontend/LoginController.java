@@ -38,7 +38,7 @@ public class LoginController implements Initializable {
 		System.exit(0);	
 		}
 	
-   public void NewUser(ActionEvent event) {
+   public void newUser(ActionEvent event) {
 		try {
 			((Node)event.getSource()).getScene().getWindow().hide();
 			Stage primaryStage = new Stage();
@@ -55,14 +55,13 @@ public class LoginController implements Initializable {
 		}
 	}
 	
-	public void Error(ActionEvent event) {
+   public void error(ActionEvent event) {
 		try {
 			((Node)event.getSource()).getScene().getWindow().hide();
 			Stage primaryStage = new Stage();
 			FXMLLoader loader = new FXMLLoader();
-			Pane root = loader.load(getClass().getResource("/Frontend/Error.fxml").openStream());
+			Pane root = loader.load(getClass().getResource("/frontend/Error.fxml").openStream());
 			Scene scene = new Scene(root);
-			
 			primaryStage.setScene(scene);
 			primaryStage.setTitle(" Forgot Password ");
 			primaryStage.show();
@@ -71,7 +70,6 @@ public class LoginController implements Initializable {
 			
 		}
 	}
-
    public void Login (ActionEvent event) throws Throwable {
 			
 			if(combobox.getValue()=="USER") {
@@ -94,6 +92,7 @@ public class LoginController implements Initializable {
 			//adminController.GetAdmin(txtusername.getText());
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
+			primaryStage.setTitle(" ADMINISTRATOR ");
 			primaryStage.show();
 		}
    }		
