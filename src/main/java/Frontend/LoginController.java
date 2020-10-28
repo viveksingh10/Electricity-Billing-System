@@ -101,5 +101,8 @@ public class LoginController implements Initializable {
 		// TODO Auto-generated method stub
 		combobox.setItems(list);
 	}
-
+public boolean checkDetails(String username,String password) {
+	
+	
+}
 }
