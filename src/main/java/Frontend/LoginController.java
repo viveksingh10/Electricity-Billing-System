@@ -3,6 +3,7 @@ package Frontend;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import DB.checkLoginDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -102,7 +103,11 @@ public class LoginController implements Initializable {
 		combobox.setItems(list);
 	}
 public boolean checkDetails(String username,String password) {
-	
-	
+	checkLoginDAO ck = new checkLoginDAO();
+	if(ck.checkUser(username, password)) {
+		return true;
+	}else {
+		return false;
+	}
 }
 }
