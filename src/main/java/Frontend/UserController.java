@@ -9,14 +9,15 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class AdminController {
+public class UserController {
 	@FXML
-	private Label adminLBL;
-
+	private Label lb1;
+	@FXML
+	private Label lb2;
 	
-	public void GetAdmin(String admin) {
-		// TODO Auto-generated method stub
-		adminLBL.setText(admin);
+	public void GetUser(String User) {
+
+		lb1.setText(User);
 
    }
 	
@@ -39,14 +40,13 @@ public class AdminController {
 			
 		}
 	}
-	
 	public void out1(ActionEvent event) {
 		try {
 			
 			((Node)event.getSource()).getScene().getWindow().hide();
 			Stage primaryStage = new Stage();
 			FXMLLoader loader = new FXMLLoader();
-			Pane root = loader.load(getClass().getResource("/Frontend/NewPayments.fxml").openStream());
+			Pane root = loader.load(getClass().getResource("/Frontend/UserComplaint.fxml").openStream());
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -55,14 +55,13 @@ public class AdminController {
 			
 		}
 	}
-	
 	public void out2(ActionEvent event) {
 		try {
 			
 			((Node)event.getSource()).getScene().getWindow().hide();
 			Stage primaryStage = new Stage();
 			FXMLLoader loader = new FXMLLoader();
-			Pane root = loader.load(getClass().getResource("/Frontend/Billstatus.fxml").openStream());
+			Pane root = loader.load(getClass().getResource("/Frontend/PayBill.fxml").openStream());
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -72,36 +71,6 @@ public class AdminController {
 		}
 	}
 	
-	public void out3(ActionEvent event) {
-		try {
-			
-			((Node)event.getSource()).getScene().getWindow().hide();
-			Stage primaryStage = new Stage();
-			FXMLLoader loader = new FXMLLoader();
-			Pane root = loader.load(getClass().getResource("/Frontend/Newbill.fxml").openStream());
-			Scene scene = new Scene(root);
-			primaryStage.setScene(scene);
-			primaryStage.show();
-			
-		} catch (Exception e) {
-			
-		}
-	}
-	
-	public void out4(ActionEvent event) {
-		try {
-			
-			((Node)event.getSource()).getScene().getWindow().hide();
-			Stage primaryStage = new Stage();
-			FXMLLoader loader = new FXMLLoader();
-			Pane root = loader.load(getClass().getResource("/Frontend/AdminComplaints.fxml").openStream());
-			Scene scene = new Scene(root);
-			primaryStage.setScene(scene);
-			primaryStage.show();
-			
-		} catch (Exception e) {
-			
-		}
-	}
-	
+
+
 }

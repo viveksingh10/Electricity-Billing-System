@@ -10,14 +10,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="618.0" prefWidth="732.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.LoginController">
+<AnchorPane prefHeight="603.0" prefWidth="732.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.LoginController">
    <children>
-      <ImageView fitHeight="630.0" fitWidth="310.0" layoutX="-8.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="Images/img1.jpg" />
-         </image>
-      </ImageView>
-      <Label layoutX="309.0" layoutY="19.0" prefHeight="18.0" prefWidth="402.0" text="Electricity Billing System">
+    
+      <Label layoutX="316.0" layoutY="19.0" prefHeight="18.0" prefWidth="402.0" text="Electricity Billing System">
          <font>
             <Font name="Berlin Sans FB" size="40.0" />
          </font>
@@ -40,16 +36,24 @@
             <Font name="Berlin Sans FB" size="19.0" />
          </font>
       </Button>
-      <Label fx:id="isConnected" layoutX="390.0" layoutY="480.0" prefHeight="36.0" prefWidth="246.0" />
+      <Label fx:id="isConnected" layoutX="390.0" layoutY="480.0" prefHeight="36.0" prefWidth="246.0">
+         <font>
+            <Font name="Berlin Sans FB" size="18.0" />
+         </font></Label>
       <Button layoutX="330.0" layoutY="544.0" mnemonicParsing="false" onAction="#error" prefHeight="36.0" prefWidth="167.0" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="FORGOT PASSWORD?">
          <font>
             <Font name="Berlin Sans FB" size="15.0" />
          </font>
       </Button>
-      <Button layoutX="554.0" layoutY="544.0" mnemonicParsing="false" onAction="#newUser" prefHeight="36.0" prefWidth="152.0" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="NEW USER? SIGNUP">
+      <Button layoutX="556.0" layoutY="544.0" mnemonicParsing="false" onAction="#newUser" prefHeight="36.0" prefWidth="152.0" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="NEW USER? SIGNUP">
          <font>
             <Font name="Berlin Sans FB" size="15.0" />
          </font>
       </Button>
+      <ImageView fitHeight="626.0" fitWidth="313.0" layoutX="-12.0">
+         <image>
+            <Image url="Images/img1.jpg" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

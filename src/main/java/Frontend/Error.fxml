@@ -17,9 +17,9 @@
       </ImageView>
       <Button layoutX="1.0" layoutY="1.0" mnemonicParsing="false" onAction="#out" prefHeight="26.0" prefWidth="90.0" style="-fx-background-color: black; -fx-text-fill: white; -fx-border-color: white;" text="MAIN MENU" />
       <Button layoutX="739.0" mnemonicParsing="false" onAction="#exxit" prefHeight="32.0" prefWidth="60.0" style="-fx-background-color: black; -fx-text-fill: white; -fx-border-color: white;" text="EXIT" />
-      <TextField fx:id="uname" layoutX="408.0" layoutY="144.0" prefHeight="31.0" prefWidth="211.0" style="-fx-background-color: black;" />
-      <TextField fx:id="mid" layoutX="406.0" layoutY="234.0" prefHeight="31.0" prefWidth="211.0" style="-fx-background-color: black;" />
-      <TextField fx:id="ano" layoutX="406.0" layoutY="335.0" prefHeight="31.0" prefWidth="211.0" style="-fx-background-color: black;" />
+      <TextField fx:id="uname" layoutX="408.0" layoutY="144.0" prefHeight="31.0" prefWidth="211.0" style="-fx-background-color: black; -fx-border-color: white;" />
+      <TextField fx:id="mid" layoutX="406.0" layoutY="234.0" prefHeight="31.0" prefWidth="211.0" style="-fx-background-color: black; -fx-border-color: white;" />
+      <TextField fx:id="ano" layoutX="406.0" layoutY="335.0" prefHeight="31.0" prefWidth="211.0" style="-fx-background-color: black; -fx-border-color: white;" />
       <Button layoutX="487.0" layoutY="407.0" mnemonicParsing="false" onAction="#submit" prefHeight="31.0" prefWidth="129.0" style="-fx-background-color: black; -fx-text-fill: white; -fx-border-color: white;" text="SUBMIT" />
       <Label alignment="CENTER" layoutX="142.0" layoutY="145.0" prefHeight="29.0" prefWidth="120.0" style="-fx-background-color: GREY; -fx-font-size: 18; -fx-border-color: white; -fx-text-fill: white;" text="USERNAME" />
       <Label alignment="CENTER" layoutX="142.0" layoutY="235.0" prefHeight="29.0" prefWidth="120.0" style="-fx-background-color: GREY; -fx-font-size: 18; -fx-border-color: white; -fx-text-fill: white;" text="METER ID" />

@@ -1,8 +1,9 @@
 package Frontend;
 
+import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
-
 import DB.checkLoginDAO;
 import DB.userPanelDAO;
 import javafx.collections.FXCollections;
@@ -21,6 +22,7 @@ import javafx.stage.Stage;
 
 public class LoginController implements Initializable {
 	 
+	public checkLoginDAO ck = new checkLoginDAO();
 	
 	    @FXML
 	    private Label isConnected;
@@ -62,7 +64,7 @@ public class LoginController implements Initializable {
 			((Node)event.getSource()).getScene().getWindow().hide();
 			Stage primaryStage = new Stage();
 			FXMLLoader loader = new FXMLLoader();
-			Pane root = loader.load(getClass().getResource("/frontend/Error.fxml").openStream());
+			Pane root = loader.load(getClass().getResource("/Frontend/Error.fxml").openStream());
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.setTitle(" Forgot Password ");
@@ -73,36 +75,75 @@ public class LoginController implements Initializable {
 		}
 	}
    public void Login (ActionEvent event) throws Throwable {
+	   
+	   if(combobox.getValue()=="USER") {
+       	
+	    	try {
+	    		if(ck.checkUser(txtusername.getText(), txtpassword.getText()))
+				{
+					  ((Node)event.getSource()).getScene().getWindow().hide();
+					   Stage primaryStage = new Stage();
+					   FXMLLoader loader = new FXMLLoader();
+					   Pane root = loader.load(getClass().getResource("/Frontend/User.fxml").openStream());
+					   UserController userController = (UserController)loader.getController();
+					   userController.GetUser(txtusername.getText());
+					   Scene scene = new Scene(root);
+					   primaryStage.setScene(scene);
+					   primaryStage.setTitle(" ADMINISTRATOR ");
+					   primaryStage.show();
+			   }else {
+				   
+	    		isConnected.setStyle( "-fx-background-color:  #ffb3b3;"+ "-fx-text-fill: red;");
+				isConnected.setText("Invalid Username or pass");
+	    	    }
 			
-			if(combobox.getValue()=="USER") {
-			((Node)event.getSource()).getScene().getWindow().hide();
-			Stage primaryStage = new Stage();
-			FXMLLoader loader = new FXMLLoader();
-			Pane root = loader.load(getClass().getResource("/Frontend/User.fxml").openStream());
-			Scene scene = new Scene(root);
-			primaryStage.setScene(scene);
-			primaryStage.show();
-	 		
-			
-			
-		}else if(combobox.getValue()=="ADMIN") {
-			((Node)event.getSource()).getScene().getWindow().hide();
-			Stage primaryStage = new Stage();
-			FXMLLoader loader = new FXMLLoader();
-			Pane root = loader.load(getClass().getResource("/Frontend/Admin.fxml").openStream());
-			//AdminController adminController = (AdminController)loader.getController();
-			//adminController.GetAdmin(txtusername.getText());
-			Scene scene = new Scene(root);
-			primaryStage.setScene(scene);
-			primaryStage.setTitle(" ADMINISTRATOR ");
-			primaryStage.show();
-		}
-   }		
+            	}catch(SQLException e) {
+   		      isConnected.setStyle( "-fx-background-color:  #ffb3b3;"+ "-fx-text-fill: red;");
+		          isConnected.setText("Invalid Username and Password");
+		          e.printStackTrace();
+  	            
+             }catch (IOException e) {
+		       	e.printStackTrace();
+  	           }
+      }
+		    
+	   else if(combobox.getValue()=="ADMIN") {
+		        	
+		    	try {
+		    		if(ck.checkUser(txtusername.getText(), txtpassword.getText()))
+					{
+						  ((Node)event.getSource()).getScene().getWindow().hide();
+						   Stage primaryStage = new Stage();
+						   FXMLLoader loader = new FXMLLoader();
+						   Pane root = loader.load(getClass().getResource("/Frontend/Admin.fxml").openStream());
+						   AdminController adminController = (AdminController)loader.getController();
+						   adminController.GetAdmin(txtusername.getText());
+						   Scene scene = new Scene(root);
+						   primaryStage.setScene(scene);
+						   primaryStage.setTitle(" ADMINISTRATOR ");
+						   primaryStage.show();
+				   }else {
+					   
+		    		isConnected.setStyle( "-fx-background-color:  #ffb3b3;"+ "-fx-text-fill: red;");
+					isConnected.setText("Invalid Username or pass");
+		    	    }
+				
+	             	}catch(SQLException e) {
+	    		      isConnected.setStyle( "-fx-background-color:  #ffb3b3;"+ "-fx-text-fill: red;");
+			          isConnected.setText("Invalid Username and Password");
+			          e.printStackTrace();
+	   	            
+	              }catch (IOException e) {
+			       	e.printStackTrace();
+	   	           }
+           }
+   }
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+
 		combobox.setItems(list);
 	}
+<<<<<<< HEAD
 public boolean checkDetails(String username,String password) {
 	checkLoginDAO ck = new checkLoginDAO();
 	if(ck.checkUser(username, password)) {
@@ -133,4 +174,30 @@ public double getBillAmount(int meterId , String username) {
 	
 	
 }
+
+public int getMeterId(String username) {
+	userPanelDAO up =new userPanelDAO();
+	if(up.checkMeterExist(username)) {
+		return up.getMeterId(username);
+	}else {
+		return -1;
+	}
+	
 }
+public double getBillAmount(int meterId , String username) {
+	userPanelDAO up =new userPanelDAO();
+	if(up.checkMeterExist(username)) {
+		double value = up.getBillAmount(meterId);
+		return value;
+		
+	}else {
+		return -1;
+	}
+	
+	
+	
+}
+}
+=======
+}
+>>>>>>> fb6724ff69d02196f04b4ab7d6d1922cf9962092
