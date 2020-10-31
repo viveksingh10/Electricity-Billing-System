@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import DB.checkLoginDAO;
+import DB.userPanelDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -109,5 +110,27 @@ public boolean checkDetails(String username,String password) {
 	}else {
 		return false;
 	}
+}
+public int getMeterId(String username) {
+	userPanelDAO up =new userPanelDAO();
+	if(up.checkMeterExist(username)) {
+		return up.getMeterId(username);
+	}else {
+		return -1;
+	}
+	
+}
+public double getBillAmount(int meterId , String username) {
+	userPanelDAO up =new userPanelDAO();
+	if(up.checkMeterExist(username)) {
+		double value = up.getBillAmount(meterId);
+		return value;
+		
+	}else {
+		return -1;
+	}
+	
+	
+	
 }
 }

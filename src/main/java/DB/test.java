@@ -15,6 +15,13 @@ public class test {
 	}
 	//main
 	public static void main(String[] args) throws ClassNotFoundException, SQLException {
+		
+		/*
+		 * 
+		 *  Uncomment these to test the DAO Classes
+		 *  
+		 *  
+		 *  */
 //		Connection con=connection.createConnection();
 //		String sql = "Insert into user(username,password) values (?,?)";
 //		PreparedStatement pr=con.prepareStatement(sql);
@@ -24,6 +31,12 @@ public class test {
 //		boolean val = checkDetails("henloooooo", "henloo");
 //		System.out.println(val);
 		
+//		userPanelDAO uk = new userPanelDAO();
+//		 boolean checkMeterID = userPanelDAO.checkMeterExist("vatdcvdsal");
+//		 System.out.println(checkMeterID);
+//		userPanelDAO uk = new userPanelDAO();
+//		int t = uk.getMeterId("vatsdfval");
+//		System.out.println(t);
 		
 	}
 
