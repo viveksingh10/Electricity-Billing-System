@@ -1,5 +1,8 @@
 package Frontend;
 
+import java.sql.SQLException;
+
+import DB.userPanelDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,11 +18,23 @@ public class UserController {
 	@FXML
 	private Label lb2;
 	
-	public void GetUser(String User) {
+	public void GetUser(String User) throws ClassNotFoundException, SQLException {
 
 		lb1.setText(User);
+		int value = getMeterId(User);
+		lb2.setText(Integer.toString(value));
 
    }
+
+	public int getMeterId(String username) throws ClassNotFoundException, SQLException {
+		userPanelDAO up =new userPanelDAO();
+		if(up.checkMeterExist(username)) {
+			return up.getMeterId(username);
+		}else {
+			return -1;
+		}
+		
+	}
 	
 	 public void exxit(ActionEvent event) {
 			System.exit(0);	
