@@ -77,6 +77,8 @@ public class UserController {
 			Stage primaryStage = new Stage();
 			FXMLLoader loader = new FXMLLoader();
 			Pane root = loader.load(getClass().getResource("/Frontend/PayBill.fxml").openStream());
+			PayBillController paybillController = (PayBillController)loader.getController();
+			paybillController.GetAmount(lb2.getText(),lb1.getText());
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.show();
@@ -85,7 +87,5 @@ public class UserController {
 			
 		}
 	}
-	
-
 
 }

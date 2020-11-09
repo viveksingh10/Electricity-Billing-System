@@ -144,14 +144,5 @@ public class LoginController implements Initializable {
 	}
 
 
-//public double getBillAmount(int meterId , String username) throws ClassNotFoundException, SQLException {
-//	userPanelDAO up = new userPanelDAO();
-//	if(up.checkMeterExist(username)) {
-//		double value = up.getBillAmount(meterId);
-//		return value;
-//		
-//	}else {
-//		return -1;
-//	}	
-//  }
+//
 }
