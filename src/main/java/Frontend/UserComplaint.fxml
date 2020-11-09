@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="496.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.UserComplaintController">
+   <children>
+      <ImageView fitHeight="498.0" fitWidth="707.0" pickOnBounds="true">
+         <image>
+            <Image url="Images/cbg.png" />
+         </image>
+      </ImageView>
+      <Button mnemonicParsing="false" onAction="#out1" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="DASHBOAD" />
+      <Button layoutX="628.0" mnemonicParsing="false" onAction="#out" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="LOGOUT" />
+      <TextArea fx:id="tarea" layoutX="201.0" layoutY="258.0" prefHeight="241.0" prefWidth="307.0" promptText="Have feedback? We'd love to hear it. Please don't share sensitive information." />
+      <ChoiceBox fx:id="combobox" layoutX="255.0" layoutY="138.0" prefHeight="28.0" prefWidth="200.0" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="254.0" layoutY="1.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="Images/dtext.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="62.0" fitWidth="90.0" layoutX="429.0" layoutY="421.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="Images/images.png" />
+         </image>
+      </ImageView>
+      <Button layoutX="555.0" layoutY="452.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="81.0" onAction="#submit" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="SUBMIT" />
+      <TextField fx:id="id" alignment="CENTER" layoutX="278.0" layoutY="95.0" promptText="METER ID" />
+      <Label fx:id="lb1" layoutX="256.0" layoutY="199.0" prefHeight="32.0" prefWidth="200.0" />
+   </children>
+</AnchorPane>

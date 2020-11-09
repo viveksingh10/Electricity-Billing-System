@@ -64,6 +64,7 @@ public class UserController {
 			Pane root = loader.load(getClass().getResource("/Frontend/UserComplaint.fxml").openStream());
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
+			primaryStage.setTitle(" Complaints/Feedback ");
 			primaryStage.show();
 			
 		} catch (Exception e) {
