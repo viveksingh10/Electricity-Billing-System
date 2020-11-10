@@ -33,6 +33,7 @@ public class AdminController {
 			Pane root = loader.load(getClass().getResource("/Frontend/Login.fxml").openStream());
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
+			primaryStage.setTitle(" Login ");
 			primaryStage.show();
 			
 		} catch (Exception e) {
@@ -49,6 +50,7 @@ public class AdminController {
 			Pane root = loader.load(getClass().getResource("/Frontend/NewPayments.fxml").openStream());
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
+			primaryStage.setTitle(" New Payments ");
 			primaryStage.show();
 			
 		} catch (Exception e) {
@@ -65,6 +67,7 @@ public class AdminController {
 			Pane root = loader.load(getClass().getResource("/Frontend/Billstatus.fxml").openStream());
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
+			primaryStage.setTitle(" Pending Bills ");
 			primaryStage.show();
 			
 		} catch (Exception e) {
@@ -78,9 +81,10 @@ public class AdminController {
 			((Node)event.getSource()).getScene().getWindow().hide();
 			Stage primaryStage = new Stage();
 			FXMLLoader loader = new FXMLLoader();
-			Pane root = loader.load(getClass().getResource("/Frontend/Newbill.fxml").openStream());
+			Pane root = loader.load(getClass().getResource("/Frontend/NewBill.fxml").openStream());
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
+			primaryStage.setTitle(" New Bills ");
 			primaryStage.show();
 			
 		} catch (Exception e) {
@@ -97,6 +101,7 @@ public class AdminController {
 			Pane root = loader.load(getClass().getResource("/Frontend/AdminComplaints.fxml").openStream());
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
+			primaryStage.setTitle(" Admin Complaints ");
 			primaryStage.show();
 			
 		} catch (Exception e) {

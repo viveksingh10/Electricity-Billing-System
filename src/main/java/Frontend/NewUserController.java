@@ -35,8 +35,6 @@ public class NewUserController implements Initializable {
 	@FXML
 	private TextField lname;
 	@FXML
-	private TextField ano;
-	@FXML
 	private PasswordField pass;
 	@FXML
     private ComboBox<String> combobox;
@@ -106,8 +104,8 @@ public class NewUserController implements Initializable {
 			FXMLLoader loader = new FXMLLoader();
 			Pane root = loader.load(getClass().getResource("/Frontend/Login.fxml").openStream());
 			Scene scene = new Scene(root);
-			
 			primaryStage.setScene(scene);
+			primaryStage.setTitle(" Login ");
 			primaryStage.show();
 		
 		} catch (Exception e) {
@@ -120,3 +118,11 @@ public class NewUserController implements Initializable {
 		
 	}
 }
+/* String f_name = fname.getText();
+   String l_name = lname.getText();
+   String username = uname.getText();  
+   String password = pass.getText();
+   String gender = combobox.getValue();
+   String email = mid.getText();
+   String adhaar = listview.getItems();*/
+

@@ -93,3 +93,9 @@ public class UserComplaintController implements Initializable {
 	}
 
 }
+
+/*   String MeterID = id.getText();
+     String Type = combobox.getValue();
+     String Statment = tarea.getText(); 
+     
+*/

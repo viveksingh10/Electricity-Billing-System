@@ -88,7 +88,7 @@ public class LoginController implements Initializable {
 					   userController.GetUser(txtusername.getText());
 					   Scene scene = new Scene(root);
 					   primaryStage.setScene(scene);
-					   primaryStage.setTitle(" ADMINISTRATOR ");
+					   primaryStage.setTitle(" USER PANEL ");
 					   primaryStage.show();
 			   }else {
 				   
@@ -119,7 +119,7 @@ public class LoginController implements Initializable {
 						   adminController.GetAdmin(txtusername.getText());
 						   Scene scene = new Scene(root);
 						   primaryStage.setScene(scene);
-						   primaryStage.setTitle(" ADMINISTRATOR ");
+						   primaryStage.setTitle(" ADMINISTRATOR PANEL ");
 						   primaryStage.show();
 				   }else {
 					   

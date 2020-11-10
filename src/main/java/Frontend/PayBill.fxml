@@ -36,7 +36,7 @@
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="246.0" layoutY="218.0" prefHeight="40.0" prefWidth="409.0" style="-fx-border-color: CYAN; -fx-font-size: 20; -fx-text-fill: SKY BLUE;" text="PAY BILL" />
      
       <Separator layoutX="230.0" layoutY="281.0" orientation="VERTICAL" prefHeight="433.0" prefWidth="16.0" />
-      <TextField alignment="CENTER" layoutX="309.0" layoutY="288.0" prefHeight="26.0" prefWidth="239.0" promptText="METER ID" />
+      <TextField fx:id="meterID" alignment="CENTER" layoutX="309.0" layoutY="288.0" prefHeight="26.0" prefWidth="239.0" promptText="METER ID" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="281.0" prefHeight="40.0" prefWidth="182.0" style="-fx-border-color: CYAN; -fx-font-size: 20; -fx-text-fill: SKY BLUE;" text="METER ID">
          <effect>
             <Glow />

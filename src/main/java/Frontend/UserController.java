@@ -49,6 +49,7 @@ public class UserController {
 			Pane root = loader.load(getClass().getResource("/Frontend/Login.fxml").openStream());
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
+			primaryStage.setTitle(" Login ");
 			primaryStage.show();
 			
 		} catch (Exception e) {
@@ -82,6 +83,7 @@ public class UserController {
 			paybillController.GetAmount(lb2.getText(),lb1.getText());
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
+			primaryStage.setTitle(" PAY BILL ");
 			primaryStage.show();
 			
 		} catch (Exception e) {

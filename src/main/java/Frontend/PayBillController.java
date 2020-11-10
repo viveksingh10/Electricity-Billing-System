@@ -38,6 +38,8 @@ public class PayBillController implements Initializable {
 	private TextField cardno;
 	@FXML
 	private TextField amount;
+	@FXML
+	private TextField meterID;
 	
 	
 	
@@ -65,9 +67,8 @@ public class PayBillController implements Initializable {
 			FXMLLoader loader = new FXMLLoader();
 			Pane root = loader.load(getClass().getResource("/Frontend/User.fxml").openStream());
 			Scene scene = new Scene(root);
-			
 			primaryStage.setScene(scene);
-			primaryStage.setTitle(" Welcome to the Company");
+			primaryStage.setTitle(" USER PANEL");
 			primaryStage.show();
 			
 		} catch (Exception e) {
@@ -130,3 +131,6 @@ public class PayBillController implements Initializable {
 		combobox3.setItems(list3);
 	}
 }
+
+/*   String MeterID = meterID.getText();
+     String Amount = amount.getText();  */

@@ -65,8 +65,8 @@ public class ErrorController implements Initializable {
 			FXMLLoader loader = new FXMLLoader();
 			Pane root = loader.load(getClass().getResource("/Frontend/Login.fxml").openStream());
 			Scene scene = new Scene(root);
-			
 			primaryStage.setScene(scene);
+			primaryStage.setTitle(" Login ");
 			primaryStage.show();
 		
 		} catch (Exception e) {
