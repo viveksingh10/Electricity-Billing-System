@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="501.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="295.0" fitWidth="763.0" layoutY="-1.0" pickOnBounds="true">
+         <image>
+            <Image url="Images/upper.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="208.0" fitWidth="765.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="Images/lower.jpg" />
+         </image>
+      </ImageView>
+      <TableView layoutX="252.0" layoutY="111.0" prefHeight="241.0" prefWidth="489.0">
+        <columns>
+          <TableColumn prefWidth="225.0" style="-FX-BACKGROUND-COLOR: #ffffb3;" text="METER ID" />
+          <TableColumn prefWidth="263.0" style="-FX-BACKGROUND-COLOR: #d9ffb3;" text="NEW PAYMENTS" />
+        </columns>
+      </TableView>
+      <Button layoutY="-1.0" mnemonicParsing="false" style="-fx-background-color: #ace600;" text="DASHBOARD" />
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="709.0" layoutY="-1.0" mnemonicParsing="false" style="-fx-background-color: #ace600;" text="EXIT" />
+      <Button layoutX="670.0" layoutY="456.0" mnemonicParsing="false" style="-fx-background-color: #ace600;" text="LOGOUT" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="301.0" layoutY="-11.0" prefHeight="70.0" prefWidth="162.0" style="-fx-background-color: SKY BLUE;" text="NEW PAYMENTS" textFill="#8eb567">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <Button layoutX="529.0" layoutY="384.0" mnemonicParsing="false" style="-fx-background-color: #ace600;" text="APPROVE PAYMENT" />
+      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="272.0" layoutY="38.0" prefHeight="57.0" prefWidth="226.0" style="-fx-background-color: SKY BLUE;" text="LABEL TO PRINT STATUS" textFill="#8eb567">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField layoutX="37.0" layoutY="158.0" promptText="MeterID" />
+      <TextField layoutX="37.0" layoutY="216.0" promptText="Amount" />
+   </children>
+</AnchorPane>
