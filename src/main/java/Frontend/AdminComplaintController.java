@@ -1,0 +1,197 @@
+package Frontend;
+
+import java.io.IOException;
+import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ResourceBundle;
+
+import DB.connection;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextArea;
+import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
+
+public class AdminComplaintController implements Initializable{
+
+	    @FXML
+	    private TextField meterID;
+
+	    @FXML
+	    private TextArea remark;
+
+	    @FXML
+	    private TextField type;
+
+	    @FXML
+	    private TableView<complaint> table_complaint;
+
+	    @FXML
+	    private TableColumn<complaint, Integer> col_meterID;
+
+	    @FXML
+	    private TableColumn<complaint, String> col_type;
+
+	    @FXML
+	    private TableColumn<complaint, String> col_statment;
+
+	    @FXML
+	    private TableColumn<complaint, String> col_status;
+
+	    @FXML
+	    private Label statuslbl;
+	    
+	    
+	    
+	    ObservableList<complaint> listM;
+	    
+
+	    int index = -1;
+	    
+	    Connection conn = null;
+	    ResultSet rs = null;
+	    PreparedStatement ps = null;
+	    Statement stmt;
+	    
+	    
+	    public void getSelected(MouseEvent event) {
+	    	index = table_complaint.getSelectionModel().getSelectedIndex();
+	    	if(index <= -1) {
+	    		return;
+	    	}
+	    	meterID.setText(col_meterID.getCellData(index).toString());
+	    	type.setText(col_type.getCellData(index).toString());
+	    	remark.setText(col_statment.getCellData(index).toString());
+
+	    }
+
+	    @FXML
+	    void dashboad(ActionEvent event) throws IOException {
+	    	((Node)event.getSource()).getScene().getWindow().hide();
+			Stage primaryStage = new Stage();
+			FXMLLoader loader = new FXMLLoader();
+			Pane root = loader.load(getClass().getResource("/Frontend/Admin.fxml").openStream());
+			Scene scene = new Scene(root);
+			primaryStage.setScene(scene);
+			primaryStage.initStyle(StageStyle.TRANSPARENT);
+			primaryStage.show();
+
+	    }
+
+	    @FXML
+	    void delete(ActionEvent event) throws ClassNotFoundException {
+	    	
+	    	try {
+	    		
+	    		if(col_status.getCellData(index).toString().equals("Solved")) {
+	    			conn = connection.createConnection();
+				ps = conn.prepareStatement("delete from feedbacks where meterID = ? and remark = ? ");
+				ps.setInt(1, col_meterID.getCellData(index));
+				ps.setString(2, col_statment.getCellData(index));
+				ps.executeUpdate();
+				statuslbl.setText("Deleted");
+				
+				Update();
+				
+				type.setText("");
+				remark.setText("");
+				meterID.setText("");
+	    		
+	    		}
+				conn.close();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				statuslbl.setText("error");
+			}
+
+	    }
+	    
+	    public void Update() throws ClassNotFoundException, SQLException {
+	    	col_meterID.setCellValueFactory(new PropertyValueFactory<complaint, Integer>("meterID"));
+			col_type.setCellValueFactory(new PropertyValueFactory<complaint, String>("type"));
+			col_statment.setCellValueFactory(new PropertyValueFactory<complaint, String>("statment")); 
+			col_status.setCellValueFactory(new PropertyValueFactory<complaint, String>("status"));
+			
+			listM = connection.getDatacomplaints();
+			table_complaint.setItems(listM);
+	    }
+
+	    @FXML
+	    void exxit(ActionEvent event) {
+	    	System.exit(0);	
+
+	    }
+
+	    @FXML
+	    void logout(ActionEvent event) throws IOException {
+
+			((Node)event.getSource()).getScene().getWindow().hide();
+			Stage primaryStage = new Stage();
+			FXMLLoader loader = new FXMLLoader();
+			Pane root = loader.load(getClass().getResource("/Frontend/Login.fxml").openStream());
+			Scene scene = new Scene(root);
+			primaryStage.setScene(scene);
+			primaryStage.initStyle(StageStyle.TRANSPARENT);
+			primaryStage.show();
+
+	    }
+
+	    @FXML
+	    void update(ActionEvent event) {
+
+	    	try {
+	    		
+	    		if(!col_status.getCellData(index).toString().equals("Solved")) {
+	    			conn = connection.createConnection();
+	    			stmt = conn.createStatement();
+	    			stmt.execute("update feedbacks set status = 'Solved' where meterID = " + col_meterID.getCellData(index) +" and remark = '"+ col_statment.getCellData(index)+"'");
+	    			statuslbl.setText("Solved");
+	    			
+	    			Update();
+	    			
+	    			type.setText("");
+	    			remark.setText("");
+	    			meterID.setText("");
+	    		}else {
+	    			statuslbl.setText("Already Solved");
+	    		}
+	    		conn.close();
+	    	}catch(Exception e) {
+	    		statuslbl.setText("Error");
+	    	}
+	    }
+
+
+		@Override
+		public void initialize(URL arg0, ResourceBundle arg1) {
+			// TODO Auto-generated method stub
+			try {
+				Update();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+
+	}
+

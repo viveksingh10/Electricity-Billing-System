@@ -8,6 +8,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class AdminController {
 	@FXML
@@ -33,7 +34,7 @@ public class AdminController {
 			Pane root = loader.load(getClass().getResource("/Frontend/Login.fxml").openStream());
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
-			primaryStage.setTitle(" Login ");
+			primaryStage.initStyle(StageStyle.TRANSPARENT);
 			primaryStage.show();
 			
 		} catch (Exception e) {
@@ -47,10 +48,10 @@ public class AdminController {
 			((Node)event.getSource()).getScene().getWindow().hide();
 			Stage primaryStage = new Stage();
 			FXMLLoader loader = new FXMLLoader();
-			Pane root = loader.load(getClass().getResource("/Frontend/NewPayments.fxml").openStream());
+			Pane root = loader.load(getClass().getResource("/Frontend/NewPayment.fxml").openStream());
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
-			primaryStage.setTitle(" New Payments ");
+			primaryStage.initStyle(StageStyle.TRANSPARENT);
 			primaryStage.show();
 			
 		} catch (Exception e) {
@@ -67,7 +68,7 @@ public class AdminController {
 			Pane root = loader.load(getClass().getResource("/Frontend/Billstatus.fxml").openStream());
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
-			primaryStage.setTitle(" Pending Bills ");
+			primaryStage.initStyle(StageStyle.TRANSPARENT);
 			primaryStage.show();
 			
 		} catch (Exception e) {
@@ -84,7 +85,7 @@ public class AdminController {
 			Pane root = loader.load(getClass().getResource("/Frontend/NewBill.fxml").openStream());
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
-			primaryStage.setTitle(" New Bills ");
+			primaryStage.initStyle(StageStyle.TRANSPARENT);
 			primaryStage.show();
 			
 		} catch (Exception e) {
@@ -98,10 +99,10 @@ public class AdminController {
 			((Node)event.getSource()).getScene().getWindow().hide();
 			Stage primaryStage = new Stage();
 			FXMLLoader loader = new FXMLLoader();
-			Pane root = loader.load(getClass().getResource("/Frontend/AdminComplaints.fxml").openStream());
+			Pane root = loader.load(getClass().getResource("/Frontend/AdminComplaint.fxml").openStream());
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
-			primaryStage.setTitle(" Admin Complaints ");
+			primaryStage.initStyle(StageStyle.TRANSPARENT);
 			primaryStage.show();
 			
 		} catch (Exception e) {
