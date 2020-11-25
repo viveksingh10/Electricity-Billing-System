@@ -1,3 +1,5 @@
+CREATE DATABASE ElectricityBillingSystem;
+USE ElectricityBillingSystem;
 CREATE TABLE user (
 meterId INT(5) NOT NULL PRIMARY KEY,
 name VARCHAR(20),
@@ -18,8 +20,20 @@ INSERT INTO user VALUES(100,"Vivek Singh","vivek10","passmeVivek","cutie1@gmail.
 
 CREATE TABLE feedback(
 meterId INT(5) NOT NULL PRIMARY KEY,
-statement VARCHAR(255),
+type VARCHAR(255),
+remark VARCHAR(255),
+status VARCHAR(255),
 FOREIGN KEY (meterId) REFERENCES user(meterId)
+);
+
+CREATE TABLE newPayments(
+meterId INT(5) NOT NULL ,
+amount DECIMAL(10,2)
+);
+
+CREATE TABLE approvedPayments(
+meterId INT(5) NOT NULL ,
+amount DECIMAL(10,2)
 );
 
 

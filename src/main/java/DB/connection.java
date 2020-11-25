@@ -22,9 +22,9 @@ public static ObservableList<complaint>getDatacomplaints() throws ClassNotFoundE
 	ObservableList<complaint> list = FXCollections.observableArrayList();
 	try {
 		Statement stmt = con.createStatement();
-		ResultSet rs = stmt.executeQuery("select * from feedbacks");
+		ResultSet rs = stmt.executeQuery("select * from feedback");
 		while(rs.next()) {
-			list.add(new complaint(rs.getInt("meterID"), rs.getString("type"), rs.getString("remark"), rs.getString("status")));
+			list.add(new complaint(rs.getInt("meterId"), rs.getString("type"), rs.getString("remark"), rs.getString("status")));
 		}
 		con.close();
 	}catch(Exception e) {
@@ -39,9 +39,9 @@ public static ObservableList<payments>getDatapayments() throws ClassNotFoundExce
 	ObservableList<payments> list = FXCollections.observableArrayList();
 	try {
 		Statement stmt = con.createStatement();
-		ResultSet rs = stmt.executeQuery("select * from payments");
+		ResultSet rs = stmt.executeQuery("select * from newPayments");
 		while(rs.next()) {
-			list.add(new payments(rs.getInt("meterID"), rs.getInt("amount")));
+			list.add(new payments(rs.getInt("meterId"), rs.getInt("amount")));
 		}
 		con.close();
 	}catch(Exception e) {
