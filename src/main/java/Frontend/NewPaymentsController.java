@@ -66,7 +66,7 @@ public class NewPaymentsController implements Initializable{
     	try {
     		
             conn = connection.createConnection();
-			ps = conn.prepareStatement("delete from payments where meterID = ? and amount = ? ");
+			ps = conn.prepareStatement("delete from newPayments where meterId = ? and amount = ? ");
 			ps.setInt(1, col_meterID.getCellData(index));
 			ps.setInt(2, col_amount.getCellData(index));
 			ps.executeUpdate();
