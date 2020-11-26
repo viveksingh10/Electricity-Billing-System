@@ -1,6 +1,6 @@
 package Frontend;
 
-public class payments {
+public class amount {
 	int meterId;
 	int amount;
 	
@@ -23,7 +23,7 @@ public class payments {
 		return amount;
 	}
 
-	public payments(int meterId, int amount) {
+	public amount(int meterId, int amount) {
 		super();
 		this.meterId = meterId;
 		this.amount = amount;

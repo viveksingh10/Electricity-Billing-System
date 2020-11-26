@@ -16,7 +16,7 @@ public class AdminController {
 
 	
 	public void GetAdmin(String admin) {
-		// TODO Auto-generated method stub
+
 		adminLBL.setText(admin);
 
    }
@@ -65,7 +65,7 @@ public class AdminController {
 			((Node)event.getSource()).getScene().getWindow().hide();
 			Stage primaryStage = new Stage();
 			FXMLLoader loader = new FXMLLoader();
-			Pane root = loader.load(getClass().getResource("/Frontend/Billstatus.fxml").openStream());
+			Pane root = loader.load(getClass().getResource("/Frontend/Billamount.fxml").openStream());
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.initStyle(StageStyle.TRANSPARENT);

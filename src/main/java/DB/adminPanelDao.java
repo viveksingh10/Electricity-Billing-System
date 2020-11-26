@@ -1,5 +1,11 @@
 package DB;
 import java.sql.*;
+
+import Frontend.amount;
+import Frontend.complaint;
+import Frontend.payments;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 public class adminPanelDao {
 
    public static void payment(int meterId , double amount) throws SQLException, ClassNotFoundException {
@@ -25,7 +31,56 @@ public class adminPanelDao {
         }
     }
 
-   
+
+public static ObservableList<complaint>getDatacomplaints() throws ClassNotFoundException, SQLException{
+	Connection con= connection.createConnection();
+	ObservableList<complaint> list = FXCollections.observableArrayList();
+	try {
+		Statement stmt = con.createStatement();
+		ResultSet rs = stmt.executeQuery("select * from feedback");
+		while(rs.next()) {
+			list.add(new complaint(rs.getInt("meterId"), rs.getString("type"), rs.getString("remark"), rs.getString("status")));
+		}
+		con.close();
+	}catch(Exception e) {
+	}
+	return list;
+	
+}
+
+
+public static ObservableList<payments>getDatapayments() throws ClassNotFoundException, SQLException{
+	Connection con= connection.createConnection();
+	ObservableList<payments> list = FXCollections.observableArrayList();
+	try {
+		Statement stmt = con.createStatement();
+		ResultSet rs = stmt.executeQuery("select * from newPayments");
+		while(rs.next()) {
+			list.add(new payments(rs.getInt("meterId"), rs.getInt("amount")));
+		}
+		con.close();
+	}catch(Exception e) {
+	}
+	return list;
+	
+}
+
+public static ObservableList<amount>getDatapendingbill() throws ClassNotFoundException, SQLException{
+	Connection con= connection.createConnection();
+	ObservableList<amount> list = FXCollections.observableArrayList();
+	try {
+		Statement stmt = con.createStatement();
+		ResultSet rs = stmt.executeQuery("select * from user where billAmount>0");
+		while(rs.next()) {
+			list.add(new amount(rs.getInt("meterId"), rs.getInt("billamount")));
+		}
+		con.close();
+	}catch(Exception e) {
+	}
+	return list;
+	
+}
+
 
 
     public static boolean checkMeterIdExist(int meterId) throws ClassNotFoundException, SQLException {

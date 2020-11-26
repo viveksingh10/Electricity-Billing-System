@@ -28,29 +28,27 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
-public class NewPaymentsController implements Initializable{
+public class BillAmountController implements Initializable {
 
     @FXML
-    private TableView<payments> table_payments;
+    private TableView<amount> table_pendingbill;
 
     @FXML
-    private TableColumn<payments, Integer> col_meterId;
+    private TableColumn<amount, Integer> col_meterId;
 
     @FXML
-    private TableColumn<payments, Integer> col_amount;
+    private TableColumn<amount, Integer> col_amount;
 
     @FXML
     private Label statuslbl;
 
     @FXML
-    private TextField meterId;
+    private TextField amount;
 
     @FXML
-    private TextField amount;
-    
-    
+    private TextField meterId;
 
-    ObservableList<payments> listM;
+    ObservableList<amount> listM;
     
 
     int index = -1;
@@ -62,7 +60,7 @@ public class NewPaymentsController implements Initializable{
     
     @FXML
     void isSelected(MouseEvent event) {
-	    	index = table_payments.getSelectionModel().getSelectedIndex();
+	    	index = table_pendingbill.getSelectionModel().getSelectedIndex();
 	    	if(index <= -1) {
 	    		return;
 	    	}
@@ -70,33 +68,10 @@ public class NewPaymentsController implements Initializable{
 	    	amount.setText(col_amount.getCellData(index).toString());
 	  
     }
-
-    @FXML
-    void approve(ActionEvent event) throws ClassNotFoundException {
-    	try {
-    		
-            conn = connection.createConnection();
-			ps = conn.prepareStatement("delete from newPayments where meterId = ? and amount = ? ");
-			ps.setInt(1, col_meterId.getCellData(index));
-			ps.setInt(2, col_amount.getCellData(index));
-			ps.executeUpdate();
-			statuslbl.setText("approved");
-			
-			Update();
-		
-			amount.setText("");
-			meterId.setText("");
-    		
-			conn.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			statuslbl.setText("error");
-		}
-
-    }
-
+    
     @FXML
     void dashboad(ActionEvent event) throws IOException {
+ 
     	((Node)event.getSource()).getScene().getWindow().hide();
 		Stage primaryStage = new Stage();
 		FXMLLoader loader = new FXMLLoader();
@@ -105,19 +80,17 @@ public class NewPaymentsController implements Initializable{
 		primaryStage.setScene(scene);
 		primaryStage.initStyle(StageStyle.TRANSPARENT);
 		primaryStage.show();
-
     }
 
     @FXML
     void exxit(ActionEvent event) {
+
     	System.exit(0);	
-
     }
-
-   
 
     @FXML
     void logout(ActionEvent event) throws IOException {
+
     	((Node)event.getSource()).getScene().getWindow().hide();
 		Stage primaryStage = new Stage();
 		FXMLLoader loader = new FXMLLoader();
@@ -126,29 +99,33 @@ public class NewPaymentsController implements Initializable{
 		primaryStage.setScene(scene);
 		primaryStage.initStyle(StageStyle.TRANSPARENT);
 		primaryStage.show();
-
     }
     
     public void Update() throws ClassNotFoundException, SQLException {
-    	col_meterId.setCellValueFactory(new PropertyValueFactory<payments, Integer>("meterId"));
-		col_amount.setCellValueFactory(new PropertyValueFactory<payments, Integer>("amount"));
+    	col_meterId.setCellValueFactory(new PropertyValueFactory<amount, Integer>("meterId"));
+		col_amount.setCellValueFactory(new PropertyValueFactory<amount, Integer>("amount"));
 		
-		listM = adminPanelDao.getDatapayments();
-		table_payments.setItems(listM);
+		listM = adminPanelDao.getDatapendingbill();
+		table_pendingbill.setItems(listM);
     }
+
+    @FXML
+    void notify(ActionEvent event) {
+      if(meterId.getText().trim().isEmpty() || amount.getText().trim().isEmpty())
+         statuslbl.setText("Select one meterId first");
+      else
+    	  statuslbl.setText("Email sent to the user.");
+      
+    }
+
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		try {
 			Update();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
+		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 	}
-
 }
-
