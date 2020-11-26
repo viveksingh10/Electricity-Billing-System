@@ -2,7 +2,7 @@ package DB;
 import java.sql.*;
 public class adminPanelDao {
 
-    void payment(int meterId , double amount) throws SQLException, ClassNotFoundException {
+   public static void payment(int meterId , double amount) throws SQLException, ClassNotFoundException {
         if(checkMeterIdExist(meterId)){
           Connection con = connection.createConnection();
           Statement st = con.createStatement();
@@ -15,7 +15,7 @@ public class adminPanelDao {
             double newAmount = billAmount - amount;
             String query = "INSERT INTO newPayments VALUES(" + meterId + "," +  amount + ")" ;
             PreparedStatement pstmt = con.prepareStatement(query);
-           pstmt.executeQuery();
+            pstmt.executeQuery();
             String query2 = "INSERT INTO approvedPayments VALUES(" + meterId + "," +  amount + ")" ;
             PreparedStatement psttmt = con.prepareStatement(query2);
             psttmt.executeQuery();
@@ -25,10 +25,10 @@ public class adminPanelDao {
         }
     }
 
+   
 
 
-
-    public boolean checkMeterIdExist(int meterId) throws ClassNotFoundException, SQLException {
+    public static boolean checkMeterIdExist(int meterId) throws ClassNotFoundException, SQLException {
         boolean flag = false;
         Connection con = connection.createConnection();
         Statement st = con.createStatement();

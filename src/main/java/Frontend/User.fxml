@@ -3,12 +3,12 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="527.0" prefWidth="691.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.UserController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="527.0" prefWidth="691.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.UserController">
    <children>
   <ImageView fitHeight="254.0" fitWidth="691.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -40,11 +40,11 @@
          <font>
             <Font name="Berlin Sans FB" size="16.0" />
          </font></Label>
-      <Button layoutX="426.0" layoutY="423.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="213.0" onAction="#out1" style="-fx-background-color: #008ae6; -fx-text-fill: white;" text="COMPLAINTS/FEEDBACK" />
-      <Button layoutX="637.0" layoutY="1.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="54.0" onAction="#exxit" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="EXIT" />
-      <Button layoutX="305.0" layoutY="167.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="76.0" onAction="#out" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="LOGOUT" />
-      <Button layoutY="1.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="85.0"  style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="MAIN MENU" />
-    <Button layoutX="59.0" layoutY="424.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="214.0" onAction="#out2" style="-fx-background-color: #008ae6; -fx-text-fill: white;" text="CHECK PENDING BILL" />
+      <Button layoutX="426.0" layoutY="423.0" mnemonicParsing="false" onAction="#out1" prefHeight="40.0" prefWidth="213.0" style="-fx-background-color: #008ae6; -fx-text-fill: white;" text="COMPLAINTS/FEEDBACK" />
+      <Button layoutX="637.0" layoutY="1.0" mnemonicParsing="false" onAction="#exxit" prefHeight="32.0" prefWidth="54.0" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="EXIT" />
+      <Button layoutX="305.0" layoutY="167.0" mnemonicParsing="false" onAction="#out" prefHeight="32.0" prefWidth="76.0" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="LOGOUT" />
+      <Button layoutY="1.0" mnemonicParsing="false" onAction="#out" prefHeight="32.0" prefWidth="85.0" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="MAIN MENU" />
+    <Button layoutX="59.0" layoutY="424.0" mnemonicParsing="false" onAction="#out2" prefHeight="40.0" prefWidth="214.0" style="-fx-background-color: #008ae6; -fx-text-fill: white;" text="CHECK PENDING BILL" />
     <ImageView fitHeight="168.0" fitWidth="214.0" layoutX="59.0" layoutY="256.0" pickOnBounds="true">
          <image>
             <Image url="Images/img3.png" />

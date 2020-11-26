@@ -32,7 +32,7 @@ import javafx.stage.StageStyle;
 public class AdminComplaintController implements Initializable{
 
 	    @FXML
-	    private TextField meterID;
+	    private TextField meterId;
 
 	    @FXML
 	    private TextArea remark;
@@ -44,7 +44,7 @@ public class AdminComplaintController implements Initializable{
 	    private TableView<complaint> table_complaint;
 
 	    @FXML
-	    private TableColumn<complaint, Integer> col_meterID;
+	    private TableColumn<complaint, Integer> col_meterId;
 
 	    @FXML
 	    private TableColumn<complaint, String> col_type;
@@ -76,7 +76,7 @@ public class AdminComplaintController implements Initializable{
 	    	if(index <= -1) {
 	    		return;
 	    	}
-	    	meterID.setText(col_meterID.getCellData(index).toString());
+	    	meterId.setText(col_meterId.getCellData(index).toString());
 	    	type.setText(col_type.getCellData(index).toString());
 	    	remark.setText(col_statment.getCellData(index).toString());
 
@@ -102,8 +102,8 @@ public class AdminComplaintController implements Initializable{
 	    		
 	    		if(col_status.getCellData(index).toString().equals("Solved")) {
 	    			conn = connection.createConnection();
-				ps = conn.prepareStatement("delete from feedbacks where meterID = ? and remark = ? ");
-				ps.setInt(1, col_meterID.getCellData(index));
+				ps = conn.prepareStatement("delete from feedbacks where meterId = ? and remark = ? ");
+				ps.setInt(1, col_meterId.getCellData(index));
 				ps.setString(2, col_statment.getCellData(index));
 				ps.executeUpdate();
 				statuslbl.setText("Deleted");
@@ -112,7 +112,7 @@ public class AdminComplaintController implements Initializable{
 				
 				type.setText("");
 				remark.setText("");
-				meterID.setText("");
+				meterId.setText("");
 	    		
 	    		}
 				conn.close();
@@ -124,9 +124,9 @@ public class AdminComplaintController implements Initializable{
 	    }
 	    
 	    public void Update() throws ClassNotFoundException, SQLException {
-	    	col_meterID.setCellValueFactory(new PropertyValueFactory<complaint, Integer>("meterID"));
+	    	col_meterId.setCellValueFactory(new PropertyValueFactory<complaint, Integer>("meterId"));
 			col_type.setCellValueFactory(new PropertyValueFactory<complaint, String>("type"));
-			col_statment.setCellValueFactory(new PropertyValueFactory<complaint, String>("statment")); 
+			col_statment.setCellValueFactory(new PropertyValueFactory<complaint, String>("remark")); 
 			col_status.setCellValueFactory(new PropertyValueFactory<complaint, String>("status"));
 			
 			listM = connection.getDatacomplaints();
@@ -161,14 +161,14 @@ public class AdminComplaintController implements Initializable{
 	    		if(!col_status.getCellData(index).toString().equals("Solved")) {
 	    			conn = connection.createConnection();
 	    			stmt = conn.createStatement();
-	    			stmt.execute("update feedbacks set status = 'Solved' where meterID = " + col_meterID.getCellData(index) +" and remark = '"+ col_statment.getCellData(index)+"'");
+	    			stmt.execute("update feedbacks set status = 'Solved' where meterId = " + col_meterId.getCellData(index) +" and remark = '"+ col_statment.getCellData(index)+"'");
 	    			statuslbl.setText("Solved");
 	    			
 	    			Update();
 	    			
 	    			type.setText("");
 	    			remark.setText("");
-	    			meterID.setText("");
+	    			meterId.setText("");
 	    		}else {
 	    			statuslbl.setText("Already Solved");
 	    		}

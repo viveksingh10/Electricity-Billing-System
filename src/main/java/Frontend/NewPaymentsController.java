@@ -129,7 +129,7 @@ public class NewPaymentsController implements Initializable{
     }
     
     public void Update() throws ClassNotFoundException, SQLException {
-    	col_meterID.setCellValueFactory(new PropertyValueFactory<payments, Integer>("meterID"));
+    	col_meterID.setCellValueFactory(new PropertyValueFactory<payments, Integer>("meterId"));
 		col_amount.setCellValueFactory(new PropertyValueFactory<payments, Integer>("amount"));
 		
 		listM = connection.getDatapayments();

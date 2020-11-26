@@ -1,11 +1,11 @@
 package Frontend;
 
 public class complaint {
-	int meterID;
+	int meterId;
 	String type, remark, status;
 	
-	public void setAccno(int meterID) {
-		this.meterID = meterID;
+	public void setAccno(int meterId) {
+		this.meterId = meterId;
 	}
 
 	public void setType(String type) {
@@ -20,8 +20,8 @@ public class complaint {
 		this.status = status;
 	}
 
-	public int getmeterID() {
-		return meterID;
+	public int getmeterId() {
+		return meterId;
 	}
 
 	public String getType() {
@@ -36,9 +36,9 @@ public class complaint {
 		return status;
 	}
 
-	public complaint(int meterID, String type, String remark, String status) {
+	public complaint(int meterId, String type, String remark, String status) {
 		super();
-		this.meterID = meterID;
+		this.meterId = meterId;
 		this.type = type;
 		this.remark = remark;
 		this.status = status;

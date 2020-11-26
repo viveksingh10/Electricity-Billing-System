@@ -109,7 +109,7 @@ public class LoginController implements Initializable {
 	   else if(combobox.getValue()=="ADMIN") {
 		        	
 		    	try {
-		    		if(ck.checkUser(txtusername.getText(), txtpassword.getText()))
+		    		if(ck.checkAdmin(txtusername.getText(), txtpassword.getText()))
 					{
 						  ((Node)event.getSource()).getScene().getWindow().hide();
 						   Stage primaryStage = new Stage();

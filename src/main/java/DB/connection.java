@@ -6,14 +6,24 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 public class connection {
 static Connection con;
-Statement st;
-static String url="jdbc:mysql://localhost:3306/";
-static String username="";
-static String password="";
+
 public static Connection createConnection() throws ClassNotFoundException, SQLException {
-	Class.forName("com.mysql.jdbc.Driver");
-	con =DriverManager.getConnection(url, username, password);
-	return con;
+	try {
+		Class.forName("org.sqlite.JDBC");
+		con = DriverManager.getConnection("jdbc:sqlite:tabel");
+	//	JOptionPane.showMessageDialog(null, "database connected");
+		return con;
+	} catch (SQLException e) {
+		// TODO Auto-generated catch block
+		//e.printStackTrace();
+		System.out.println("Database not connected error-dbconnect");
+		return null;
+	} catch (ClassNotFoundException e) {
+		// TODO Auto-generated catch block
+		//e.printStackTrace();
+		System.out.println("database class not found error - dbconnect");
+		return null;
+	}
 }
 
 
@@ -49,4 +59,5 @@ public static ObservableList<payments>getDatapayments() throws ClassNotFoundExce
 	return list;
 	
 }
+
 }
