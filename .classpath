@@ -35,6 +35,5 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="/Banking_System_/Resource_jar/sqlite-jdbc-3.8.10.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
