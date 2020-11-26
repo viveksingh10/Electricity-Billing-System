@@ -4,7 +4,12 @@ public class complaint {
 	int meterId;
 	String type, remark, status;
 	
-	public void setAccno(int meterId) {
+	
+	public int getMeterId() {
+		return meterId;
+	}
+
+	public void setMeterId(int meterId) {
 		this.meterId = meterId;
 	}
 
@@ -18,10 +23,6 @@ public class complaint {
 
 	public void setStatus(String status) {
 		this.status = status;
-	}
-
-	public int getmeterId() {
-		return meterId;
 	}
 
 	public String getType() {
