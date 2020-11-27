@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+<AnchorPane prefHeight="626.0" prefWidth="819.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.AddBillController">
+   <children>
+   <ImageView fitHeight="626.0" fitWidth="819.0" pickOnBounds="true">
+         <image>
+            <Image url="Images/addbillbg.jpg" />
+         </image>
+      </ImageView>
+      <Label fx:id="lbl_captcha" alignment="CENTER" contentDisplay="CENTER" layoutX="253.0" layoutY="462.0" opacity="0.71" prefHeight="31.0" prefWidth="113.0" style="-fx-background-color: WHITE;" text="JSB45d">
+         <font>
+            <Font size="24.0" />
+         </font>
+         <effect>
+            <InnerShadow />
+         </effect></Label>
+      <TextField fx:id="meterId" layoutX="444.0" layoutY="160.0" prefHeight="31.0" prefWidth="214.0" />
+      <TextField fx:id="oneunit" layoutX="444.0" layoutY="212.0" prefHeight="31.0" prefWidth="214.0" />
+      <TextField fx:id="units" layoutX="444.0" layoutY="261.0" prefHeight="31.0" prefWidth="214.0" />
+      <TextField fx:id="amount" layoutX="444.0" layoutY="384.0" prefHeight="31.0" prefWidth="214.0" />
+      <TextField fx:id="captcha" layoutX="444.0" layoutY="464.0" prefHeight="31.0" prefWidth="214.0" />
+      <Label fx:id="statuslbl" layoutX="328.0" layoutY="79.0" prefHeight="53.0" prefWidth="164.0" text="STATUS LABEL">
+         <font>
+            <Font name="Cambria Math" size="24.0" />
+         </font>
+      </Label>
+      <Button mnemonicParsing="false" onAction="#dashboard" style="-fx-background-color: #bfbfbf;" text="DASHBOARD" />
+      <Button layoutX="765.0" layoutY="-2.0" mnemonicParsing="false" onAction="#exxit" style="-fx-background-color: #bfbfbf;" text="EXIT" />
+      <Button layoutX="751.0" layoutY="594.0" mnemonicParsing="false" onAction="#logout" style="-fx-background-color: #bfbfbf;" text="LOGOUT" />
+      <Button layoutX="703.0" layoutY="464.0" mnemonicParsing="false" onAction="#reload" prefHeight="32.0" prefWidth="82.0" style="-fx-background-color: #bfbfbf;" text="RELOAD" />
+      <Button layoutX="125.0" layoutY="542.0" mnemonicParsing="false" onAction="#submit" prefHeight="32.0" prefWidth="113.0" style="-fx-background-color: #bfbfbf;" text="SUBMIT" />
+      <Button layoutX="551.0" layoutY="542.0" mnemonicParsing="false" onAction="#addmore" prefHeight="32.0" prefWidth="113.0" style="-fx-background-color: #bfbfbf;" text="ADD MORE" />
+      <Label alignment="CENTER" contentDisplay="CENTER" ellipsisString="4" layoutX="89.0" layoutY="159.0" lineSpacing="4.0" prefHeight="32.0" prefWidth="113.0" style="-fx-font-size: 18; -fx-text-fill: black; -fx-border-color: black; -fx-background-color: #bfbfbf;" text="METER ID" textAlignment="JUSTIFY">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" ellipsisString="4" layoutX="89.0" layoutY="211.0" lineSpacing="4.0" prefHeight="32.0" prefWidth="164.0" style="-fx-font-size: 18; -fx-text-fill: black; -fx-border-color: black; -fx-background-color: #bfbfbf;" text="CHARGE PER UNIT" textAlignment="JUSTIFY">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" ellipsisString="4" layoutX="89.0" layoutY="260.0" lineSpacing="4.0" prefHeight="32.0" prefWidth="164.0" style="-fx-font-size: 18; -fx-border-color: black; -fx-background-color: #bfbfbf;" text="UNITS CONSUMED" textAlignment="JUSTIFY">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" ellipsisString="4" layoutX="89.0" layoutY="383.0" lineSpacing="4.0" prefHeight="32.0" prefWidth="184.0" style="-fx-font-size: 18; -fx-text-fill: white; -fx-border-color: black; -fx-background-color: #a6a6a6;" text="AMOUNT TO BE PAID" textAlignment="JUSTIFY">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="CENTER" ellipsisString="4" layoutX="89.0" layoutY="463.0" lineSpacing="4.0" prefHeight="32.0" prefWidth="113.0" style="-fx-font-size: 18; -fx-text-fill: white; -fx-border-color: black; -fx-background-color: #a6a6a6;" text="CAPTCHA" textAlignment="JUSTIFY">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <Label alignment="CENTER" contentDisplay="TOP" layoutX="217.0" layoutY="5.0" prefHeight="54.0" prefWidth="423.0" style="-fx-background-color: GREY;" text="ADD BILLS ">
+         <font>
+            <Font name="Cambria Math" size="48.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="76.0" fitWidth="68.0" layoutX="239.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="Images/addbillicon.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="adminLabel" layoutX="703.0" layoutY="95.0" />
+   </children>
+</AnchorPane>
