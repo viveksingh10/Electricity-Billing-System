@@ -12,7 +12,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-		    Parent root = FXMLLoader.load(getClass().getResource("/Frontend/Billamount.fxml"));
+		    Parent root = FXMLLoader.load(getClass().getResource("/Frontend/AddBill.fxml"));
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.initStyle(StageStyle.TRANSPARENT);

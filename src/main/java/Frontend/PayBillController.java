@@ -18,6 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class PayBillController implements Initializable {
 	
@@ -40,9 +41,10 @@ public class PayBillController implements Initializable {
 	private TextField amount;
 	@FXML
 	private TextField meterID;
+	@FXML
+	private Label userLabel;
 	
-	
-	
+
 	
     ObservableList<String> list1 = FXCollections.observableArrayList("VISA", "DEBIT", "CREDIT");
     ObservableList<String> list2 = FXCollections.observableArrayList("1","2","3","4","5","6","7","8","9","10","11","12");
@@ -53,6 +55,7 @@ public class PayBillController implements Initializable {
     	int mid = Integer.parseInt(ID);
     	int value = (int) getBillAmount(mid,user);
 		lb1.setText(Integer.toString(value));
+		userLabel.setText(user);
 
    }
     
@@ -67,8 +70,10 @@ public class PayBillController implements Initializable {
 			FXMLLoader loader = new FXMLLoader();
 			Pane root = loader.load(getClass().getResource("/Frontend/User.fxml").openStream());
 			Scene scene = new Scene(root);
+			UserController userController = (UserController)loader.getController();
+		    userController.GetUser(userLabel.getText());
 			primaryStage.setScene(scene);
-			primaryStage.setTitle(" USER PANEL");
+			primaryStage.initStyle(StageStyle.TRANSPARENT);
 			primaryStage.show();
 			
 		} catch (Exception e) {
@@ -84,7 +89,7 @@ public class PayBillController implements Initializable {
 			Pane root = loader.load(getClass().getResource("/Frontend/Login.fxml").openStream());
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
-			primaryStage.setTitle(" Login ");
+			primaryStage.initStyle(StageStyle.TRANSPARENT);
 			primaryStage.show();
 			
 		} catch (Exception e) {

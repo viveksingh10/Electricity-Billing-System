@@ -52,5 +52,6 @@
       </TableView>
       <Button contentDisplay="CENTER" layoutX="502.0" layoutY="483.0" mnemonicParsing="false" onAction="#delete" prefHeight="32.0" prefWidth="173.0" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="DELETE" />
       <Label fx:id="statuslbl" layoutX="310.0" layoutY="83.0" prefHeight="31.0" prefWidth="258.0" text="Status" />
+      <Label fx:id="adminLabel" layoutX="727.0" layoutY="102.0" visible="false" />
    </children>
 </AnchorPane>

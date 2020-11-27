@@ -47,6 +47,15 @@ public class BillAmountController implements Initializable {
 
     @FXML
     private TextField meterId;
+    
+    @FXML
+    private Label adminLabel;
+    
+    public void GetAdmin(String admin) {
+
+		adminLabel.setText(admin);
+
+   }
 
     ObservableList<amount> listM;
     
@@ -77,6 +86,8 @@ public class BillAmountController implements Initializable {
 		FXMLLoader loader = new FXMLLoader();
 		Pane root = loader.load(getClass().getResource("/Frontend/Admin.fxml").openStream());
 		Scene scene = new Scene(root);
+		AdminController adminController = (AdminController)loader.getController();
+	    adminController.GetAdmin(adminLabel.getText());
 		primaryStage.setScene(scene);
 		primaryStage.initStyle(StageStyle.TRANSPARENT);
 		primaryStage.show();
