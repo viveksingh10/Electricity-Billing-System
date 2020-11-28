@@ -21,6 +21,22 @@ public static Connection createConnection() throws ClassNotFoundException, SQLEx
 		return null;
 	}
 }
-
-
 }
+
+
+//}
+//
+//package DB;
+//import java.sql.*;
+//public class connection {
+//static Connection con;
+//Statement st;
+//static String url="jdbc:mysql://localhost:3306/ElectricityBillingSystem";
+//static String username="vatsuvaksi";
+//static String password="Passup78dr9537titanhello";
+//public static Connection createConnection() throws ClassNotFoundException, SQLException {
+//	Class.forName("com.mysql.jdbc.Driver");
+//	con =DriverManager.getConnection(url, username, password);
+//	return con;
+//}
+//}
