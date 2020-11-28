@@ -1,8 +1,10 @@
 package Frontend;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import DB.userPanelDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -27,7 +29,7 @@ public class ErrorController implements Initializable {
 
 	
 
-	public void submit(ActionEvent event) {
+	public void submit(ActionEvent event) throws NumberFormatException, ClassNotFoundException, SQLException {
 
 		if(uname.getText().trim().isEmpty() || mid.getText().trim().isEmpty() || ano.getText().trim().isEmpty()) {
 			mylbl.setStyle
@@ -38,6 +40,8 @@ public class ErrorController implements Initializable {
 			mylbl.setText("Invalid Details");
 			
 		}else {
+			
+			userPanelDAO.readFromForgetPage(Integer.parseInt(mid.getText()));
 			mylbl.setStyle
 			(
 					

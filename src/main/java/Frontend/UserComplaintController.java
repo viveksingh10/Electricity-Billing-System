@@ -1,8 +1,9 @@
 package Frontend;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
-
+import DB.userPanelDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -76,7 +77,7 @@ public class UserComplaintController implements Initializable {
 		}
 	}
 	
-	public void submit(ActionEvent event) {
+	public void submit(ActionEvent event) throws NumberFormatException, ClassNotFoundException, SQLException {
 		if(combobox.getValue().trim().isEmpty() || id.getText().trim().isEmpty() || tarea.getText().trim().isEmpty()) {
 			lb1.setStyle
 			(
@@ -86,6 +87,7 @@ public class UserComplaintController implements Initializable {
 			lb1.setText("Enter all details");
 			
 		}else {
+			userPanelDAO.userComplaint(Integer.parseInt(id.getText()), combobox.getValue().toString(), tarea.getText());
 			lb1.setStyle
 			(
 					
@@ -99,15 +101,8 @@ public class UserComplaintController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
 		combobox.setItems(list);
 		
 	}
 
 }
-
-/*   String MeterID = id.getText();
-     String Type = combobox.getValue();
-     String Statment = tarea.getText(); 
-     
-*/

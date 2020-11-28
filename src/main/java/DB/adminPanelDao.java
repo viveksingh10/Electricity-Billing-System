@@ -100,28 +100,23 @@ public static ObservableList<amount>getDatapendingbill() throws ClassNotFoundExc
 		PreparedStatement pt = con.prepareStatement(query);
 		pt.executeQuery();
 	}
-	public void newPayments(int meterId, double billAmount) throws SQLException, ClassNotFoundException {
-	Connection con =connection.createConnection();
-   	String query = "INSERT INTO newPayments VALUES(" + meterId + "," +  billAmount + ")" ;
-		PreparedStatement pstmt = con.prepareStatement(query);
-		pstmt.executeQuery();
-	}
-	public void executingAmount(int meterId) throws SQLException, ClassNotFoundException {
+    
+	public static void executingAmount(int meterId) throws SQLException, ClassNotFoundException {
 		Connection con = connection.createConnection();
 		Statement st = con.createStatement();
 		String queryForOriginalAmount ="SELECT * from user where meterId =" + meterId ;
 		ResultSet rs = st.executeQuery(queryForOriginalAmount);
-		double billAmount =0;
+		int billAmount =0;
 		while(rs.next()) {
-			billAmount = rs.getDouble("billAmount");
+			billAmount = rs.getInt("billAmount");
 		}
 		String newPayment = "SELECT * from newPayments where meterId =" + meterId ;
-		double newPayments =0;
+		int newPayments =0;
 		ResultSet rss = st.executeQuery(newPayment);
 		while(rs.next()){
-			newPayments = rss.getDouble("amount");
+			newPayments = rss.getInt("amount");
 		}
-		double updatedBill = billAmount - newPayments ;
+		int updatedBill = billAmount - newPayments ;
 		String query3 = "UPDATE user" + "SET billAmount =  " + updatedBill + "WHERE meterId = " + meterId ;
 		PreparedStatement psttmtt = con.prepareStatement(query3);
 		psttmtt.executeQuery();

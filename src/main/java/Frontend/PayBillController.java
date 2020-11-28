@@ -97,9 +97,9 @@ public class PayBillController implements Initializable {
 		}
 	}
    
-   public void submit(ActionEvent event) {
+   public void submit(ActionEvent event) throws ClassNotFoundException, SQLException {
 
-		if(cv.getText().trim().isEmpty()||cardno.getText().trim().isEmpty()|| amount.getText().trim().isEmpty()) {
+		if(cv.getText().trim().isEmpty()||meterID.getText().trim().isEmpty()||cardno.getText().trim().isEmpty()|| amount.getText().trim().isEmpty()) {
 			lb2.setStyle
 			(
 				 "-fx-background-color: white;"
@@ -108,6 +108,7 @@ public class PayBillController implements Initializable {
 			lb2.setText("Failed"); 
 			
 		}else {
+			userPanelDAO.newPayments(Integer.parseInt(meterID.getText()), Integer.parseInt(amount.getText()));
 			lb2.setStyle
 			(
 					

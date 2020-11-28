@@ -2,8 +2,10 @@ package Frontend;
 
 import java.io.File;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import DB.userPanelDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -27,9 +29,11 @@ public class NewUserController implements Initializable {
 	@FXML
 	private Label mylbl;
 	@FXML
+	private TextField meterId;
+	@FXML
 	private TextField uname;
 	@FXML
-	private TextField mid;
+	private TextField email;
 	@FXML
 	private TextField fname;
 	@FXML
@@ -42,7 +46,7 @@ public class NewUserController implements Initializable {
 	private Button btn1;
 	@FXML
 	private ListView<String> listview;
-	
+	int billAmount=0;
 	public void ButtonAction(ActionEvent enent) {
 		FileChooser fc= new FileChooser();
 		File selectedFile = fc.showOpenDialog(null);
@@ -64,11 +68,11 @@ public class NewUserController implements Initializable {
 
 	
 
-	public void submit(ActionEvent event) {
+	public void submit(ActionEvent event) throws ClassNotFoundException, SQLException {
 
-		   if(  lname.getText().trim().isEmpty() || fname.getText().trim().isEmpty() ||
+		   if(  lname.getText().trim().isEmpty() || fname.getText().trim().isEmpty() || meterId.getText().trim().isEmpty()||
 				uname.getText().trim().isEmpty() || pass.getText().trim().isEmpty() || 
-				mid.getText().trim().isEmpty() || combobox.getValue().trim().isEmpty() || listview.getItems().isEmpty() ) {
+				email.getText().trim().isEmpty() || combobox.getValue().trim().isEmpty() || listview.getItems().isEmpty() ) {
 			mylbl.setStyle
 			(
 				 "-fx-background-color: white;"
@@ -77,6 +81,9 @@ public class NewUserController implements Initializable {
 			mylbl.setText("Enter all fields correctly");
 			
 		}else {
+			
+			userPanelDAO.insertUser(fname.getText(), lname.getText(), Integer.parseInt(meterId.getText()), uname.getText(), pass.getText(),
+					                email.getText(), combobox.getValue().toString(), listview.getItems().toString(), billAmount);
 			mylbl.setStyle
 			(
 					

@@ -82,15 +82,15 @@ public class NewPaymentsController implements Initializable{
     void approve(ActionEvent event) throws ClassNotFoundException {
     	try {
     		
+    		adminPanelDao.executingAmount(Integer.parseInt(meterId.getText()));
             conn = connection.createConnection();
 			ps = conn.prepareStatement("delete from newPayments where meterId = ? and amount = ? ");
 			ps.setInt(1, col_meterId.getCellData(index));
 			ps.setInt(2, col_amount.getCellData(index));
 			ps.executeUpdate();
 			statuslbl.setText("approved");
-			
 			Update();
-		
+		    
 			amount.setText("");
 			meterId.setText("");
     		
@@ -122,9 +122,7 @@ public class NewPaymentsController implements Initializable{
     	System.exit(0);	
 
     }
-
-   
-
+    
     @FXML
     void logout(ActionEvent event) throws IOException {
     	((Node)event.getSource()).getScene().getWindow().hide();

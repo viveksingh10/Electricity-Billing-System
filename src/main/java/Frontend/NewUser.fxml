@@ -7,12 +7,12 @@
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="610.0" maxWidth="835.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="572.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.NewUserController">
+<AnchorPane maxHeight="610.0" maxWidth="835.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="572.0" prefWidth="761.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.NewUserController">
    <children>
       <ImageView fitHeight="615.0" fitWidth="771.0" layoutX="-9.0" layoutY="-6.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -43,7 +43,7 @@
          </effect>
       </Label>
       <AnchorPane layoutX="323.0" layoutY="320.0" />
-      <Button layoutX="520.0" layoutY="517.0" mnemonicParsing="false" onAction="#submit" prefHeight="32.0" prefWidth="86.0" style="-fx-background-color: #b3cccc; -fx-border-color: black;" text="SUBMIT" />
+      <Button layoutX="614.0" layoutY="517.0" mnemonicParsing="false" onAction="#submit" prefHeight="33.0" prefWidth="108.0" style="-fx-background-color: #b3cccc; -fx-border-color: black;" text="SUBMIT" />
       <Button layoutX="1.0" layoutY="1.0" mnemonicParsing="false" onAction="#out" style="-fx-background-color: #b3cccc; -fx-border-color: black;" text="MAIN MENU" />
       <Label alignment="CENTER" contentDisplay="CENTER" ellipsisString="4" layoutX="99.0" layoutY="318.0" lineSpacing="4.0" prefHeight="32.0" prefWidth="113.0" style="-fx-font-size: 18; -fx-text-fill: white; -fx-background-color: GREY; -fx-border-color: black;" text="GENDER" textAlignment="JUSTIFY">
          <effect>
@@ -61,7 +61,7 @@
             <DropShadow />
          </effect>
       </Label>
-      <TextField fx:id="mid" layoutX="317.0" layoutY="383.0" prefHeight="31.0" prefWidth="180.0" promptText="EMAIL ADDRESS" />
+      <TextField fx:id="email" layoutX="317.0" layoutY="383.0" prefHeight="31.0" prefWidth="180.0" promptText="EMAIL ADDRESS" />
       <Label alignment="CENTER" contentDisplay="CENTER" ellipsisString="4" layoutX="99.0" layoutY="448.0" lineSpacing="4.0" prefHeight="32.0" prefWidth="113.0" style="-fx-font-size: 18; -fx-text-fill: white; -fx-border-color: black; -fx-background-color: GREY;" text="ADHAAR " textAlignment="JUSTIFY">
          <effect>
             <DropShadow />
@@ -69,11 +69,17 @@
       </Label>
       <Button fx:id="btn1" layoutX="518.0" layoutY="447.0" mnemonicParsing="false" onAction="#ButtonAction" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: #b3cccc; -fx-border-color: black;" text="UPLOAD" />
       <ListView fx:id="listview" layoutX="313.0" layoutY="448.0" prefHeight="32.0" prefWidth="186.0" />
-      <Label fx:id="mylbl" layoutX="190.0" layoutY="517.0" prefHeight="32.0" prefWidth="247.0">
+      <Label fx:id="mylbl" layoutX="282.0" layoutY="69.0" prefHeight="32.0" prefWidth="247.0">
          <font>
             <Font name="Berlin Sans FB" size="16.0" />
          </font></Label>
       <Button layoutX="701.0" layoutY="1.0" mnemonicParsing="false" onAction="#exxit" prefHeight="26.0" prefWidth="58.0" style="-fx-background-color: #b3cccc; -fx-border-color: black;" text="EXIT" />
       <ComboBox fx:id="combobox" layoutX="317.0" layoutY="320.0" prefHeight="26.0" prefWidth="180.0" promptText="Gender" />
+      <Label alignment="CENTER" contentDisplay="CENTER" ellipsisString="4" layoutX="99.0" layoutY="508.0" lineSpacing="4.0" prefHeight="32.0" prefWidth="113.0" style="-fx-font-size: 18; -fx-text-fill: white; -fx-border-color: black; -fx-background-color: GREY;" text="METER ID" textAlignment="JUSTIFY">
+         <effect>
+            <DropShadow />
+         </effect>
+      </Label>
+      <TextField fx:id="meterId" layoutX="315.0" layoutY="508.0" prefHeight="32.0" prefWidth="186.0" promptText="METERID" />
    </children>
 </AnchorPane>
