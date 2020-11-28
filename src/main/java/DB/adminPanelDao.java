@@ -94,12 +94,12 @@ public static ObservableList<amount>getDatapendingbill() throws ClassNotFoundExc
         }
         return flag;
     }
-    public void insertAdmin(String name , String username , String password ,String email) throws SQLException, ClassNotFoundException {
-		Connection con = connection.createConnection();
-		String query = "INSERT into admin VALUES(" + name + "," +  username + "," + password + "," + email + ")";
-		PreparedStatement pt = con.prepareStatement(query);
-		pt.executeQuery();
-	}
+//    public void insertAdmin(String name , String username , String password ,String email) throws SQLException, ClassNotFoundException {
+//		Connection con = connection.createConnection();
+//		String query = "INSERT into admin VALUES(\"" + name + "\"," +  username + "," + password + "," + email + ")";
+//		PreparedStatement pt = con.prepareStatement(query);
+//		pt.executeQuery();
+//	}
     
 	public static void executingAmount(int meterId) throws SQLException, ClassNotFoundException {
 		Connection con = connection.createConnection();

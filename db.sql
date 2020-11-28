@@ -8,7 +8,7 @@ password VARCHAR(20) NOT NULL,
 email VARCHAR(50),
 gender VARCHAR(1),
 adharCard VARCHAR(100),
-billAmount DECIMAL(10,2)
+billAmount DECIMAL(10,2) default 0.0
 );
 
 INSERT INTO user VALUES(100,"Vivek Singh","vivek10","passmeVivek","cutie1@gmail.com","M","dummy","0.0"),
@@ -22,7 +22,7 @@ CREATE TABLE feedback(
 meterId INT(5) NOT NULL PRIMARY KEY,
 type VARCHAR(255),
 remark VARCHAR(255),
-status VARCHAR(255),
+status VARCHAR(255)
 );
 
 CREATE TABLE newPayments(

@@ -40,11 +40,11 @@ public double getBillAmount(int meterID) throws SQLException, ClassNotFoundExcep
 	return amount;
 	
 }
-public static void insertUser( String firstname, String lastname , int meterId , String username , String password , String email , String gender , String addharUid , int billAmount ) throws SQLException, ClassNotFoundException {
+public static void insertUser( String name , int meterId , String username , String password , String email , String gender , String addharUid , int billAmount ) throws SQLException, ClassNotFoundException {
 Connection con = connection.createConnection();
-String query = "INSERT into user VALUES(" + firstname + "," + lastname + "," +  meterId + "," + username + "," + password + "," + email + "," + gender + "," + addharUid + "," + billAmount+ ")" ;
+String query = "INSERT INTO user VALUES(" +  meterId + ",\"" + name +  "\",\"" + username + "\",\"" + password + "\",\"" + email + "\",\"" + gender + "\",\"" + addharUid + "\"," + billAmount+ ")" ;
 PreparedStatement pt = con.prepareStatement(query);
-pt.executeQuery();
+pt.executeUpdate();
 
 }
 public static void readFromForgetPage(int meterId) throws SQLException, ClassNotFoundException {
@@ -52,22 +52,41 @@ public static void readFromForgetPage(int meterId) throws SQLException, ClassNot
 		String type = "Complaint";
 		String status = "Pending";
 		String remark = "Error in login";
-	String query = "INSERT into feedback VALUES(" + meterId + "," +  type + "," + remark + "," + status + ")";
+		String query = "INSERT into feedback VALUES(" + meterId + ",\"" +  type + "\",\"" + remark + "\",\"" + status + "\")";
 	PreparedStatement pt = con.prepareStatement(query);
-	pt.executeQuery();
+	pt.executeUpdate();
 }
 public static void userComplaint(int meterId , String type , String remark) throws SQLException, ClassNotFoundException {
 	Connection con = connection.createConnection();
 		String status = "Pending";
-		String query = "INSERT into feedback VALUES(" + meterId + "," +  type + "," + remark + "," + status + ")";
+		String query = "INSERT into feedback VALUES(" + meterId + ",\"" +  type + "\",\"" + remark + "\",\"" + status + "\")";
 	PreparedStatement pt = con.prepareStatement(query);
-	pt.executeQuery();
+	pt.executeUpdate();
 }
 
 public static void newPayments(int meterId, int billAmount) throws SQLException, ClassNotFoundException {
 	Connection con =connection.createConnection();
    	String query = "INSERT INTO newPayments VALUES(" + meterId + "," +  billAmount + ")" ;
 		PreparedStatement pstmt = con.prepareStatement(query);
-		pstmt.executeQuery();
+		pstmt.executeUpdate();
 	}
+public static void addBill(int meterId , double billAmount) throws ClassNotFoundException, SQLException {
+	Connection con = connection.createConnection();
+	String query1 ="SELECT * from user where meterId =" + meterId ;
+	Statement st = con.createStatement();
+	ResultSet rs = st.executeQuery(query1);
+	double amount =0;
+	while(rs.next()) {
+	 amount = rs.getDouble("billAmount");
+	}
+	//amount += billAmount;
+	if(amount != 0) {
+		amount += billAmount;
+	}else {
+		amount = billAmount;
+	}
+	 String query2 = "UPDATE user" + "SET billAmount =  " + amount + "WHERE meterId = " + meterId ;
+     PreparedStatement pt = con.prepareStatement(query2);
+     pt.executeUpdate();
+}
 }

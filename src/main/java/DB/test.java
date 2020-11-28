@@ -37,7 +37,12 @@ public class test {
 //		userPanelDAO uk = new userPanelDAO();
 //		int t = uk.getMeterId("vatsdfval");
 //		System.out.println(t);
-		
+//         Connection con =connection.createConnection();
+//		userPanelDAO us = new userPanelDAO();
+//		us.newPayments(102, 2000);
+//        us.userComplaint(102, "Yo", "juwe"); 
+		//us.insertUser("vatsal", 1010, "username", "password", "email", "M", "addharUid", 109);
+//		
 	}
 
 }
