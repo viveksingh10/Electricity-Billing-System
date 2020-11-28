@@ -7,30 +7,30 @@ import Frontend.payments;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 public class adminPanelDao {
-
-   public static void payment(int meterId , double amount) throws SQLException, ClassNotFoundException {
-        if(checkMeterIdExist(meterId)){
-          Connection con = connection.createConnection();
-          Statement st = con.createStatement();
-            String queryForOriginalAmount ="SELECT * from user where meterId =\"" + meterId + "\"";
-            ResultSet rs = st.executeQuery(queryForOriginalAmount);
-            double billAmount =0;
-            while(rs.next()) {
-                billAmount = rs.getDouble("billAmount");
-            }
-            double newAmount = billAmount - amount;
-            String query = "INSERT INTO newPayments VALUES(" + meterId + "," +  amount + ")" ;
-            PreparedStatement pstmt = con.prepareStatement(query);
-            pstmt.executeQuery();
-            String query2 = "INSERT INTO approvedPayments VALUES(" + meterId + "," +  amount + ")" ;
-            PreparedStatement psttmt = con.prepareStatement(query2);
-            psttmt.executeQuery();
-            String query3 = "UPDATE user" + "SET billAmount =  " + newAmount + "WHERE meterId = " + meterId ;
-            PreparedStatement psttmtt = con.prepareStatement(query3);
-            psttmtt.executeQuery();
-        }
-    }
-
+//
+//   public static void payment(int meterId , double amount) throws SQLException, ClassNotFoundException {
+//        if(checkMeterIdExist(meterId)){
+//          Connection con = connection.createConnection();
+//          Statement st = con.createStatement();
+//            String queryForOriginalAmount ="SELECT * from user where meterId =\"" + meterId + "\"";
+//            ResultSet rs = st.executeQuery(queryForOriginalAmount);
+//            double billAmount =0;
+//            while(rs.next()) {
+//                billAmount = rs.getDouble("billAmount");
+//            }
+//            double newAmount = billAmount - amount;
+//            String query = "INSERT INTO newPayments VALUES(" + meterId + "," +  amount + ")" ;
+//            PreparedStatement pstmt = con.prepareStatement(query);
+//            pstmt.executeQuery();
+//            String query2 = "INSERT INTO approvedPayments VALUES(" + meterId + "," +  amount + ")" ;
+//            PreparedStatement psttmt = con.prepareStatement(query2);
+//            psttmt.executeQuery();
+//            String query3 = "UPDATE user" + "SET billAmount =  " + newAmount + "WHERE meterId = " + meterId ;
+//            PreparedStatement psttmtt = con.prepareStatement(query3);
+//            psttmtt.executeQuery();
+//        }
+//    }
+//
 
 public static ObservableList<complaint>getDatacomplaints() throws ClassNotFoundException, SQLException{
 	Connection con= connection.createConnection();
@@ -94,4 +94,36 @@ public static ObservableList<amount>getDatapendingbill() throws ClassNotFoundExc
         }
         return flag;
     }
+    public void insertAdmin(String name , String username , String password ,String email) throws SQLException, ClassNotFoundException {
+		Connection con = connection.createConnection();
+		String query = "INSERT into admin VALUES(" + name + "," +  username + "," + password + "," + email + ")";
+		PreparedStatement pt = con.prepareStatement(query);
+		pt.executeQuery();
+	}
+	public void newPayments(int meterId, double billAmount) throws SQLException, ClassNotFoundException {
+	Connection con =connection.createConnection();
+   	String query = "INSERT INTO newPayments VALUES(" + meterId + "," +  billAmount + ")" ;
+		PreparedStatement pstmt = con.prepareStatement(query);
+		pstmt.executeQuery();
+	}
+	public void executingAmount(int meterId) throws SQLException, ClassNotFoundException {
+		Connection con = connection.createConnection();
+		Statement st = con.createStatement();
+		String queryForOriginalAmount ="SELECT * from user where meterId =" + meterId ;
+		ResultSet rs = st.executeQuery(queryForOriginalAmount);
+		double billAmount =0;
+		while(rs.next()) {
+			billAmount = rs.getDouble("billAmount");
+		}
+		String newPayment = "SELECT * from newPayments where meterId =" + meterId ;
+		double newPayments =0;
+		ResultSet rss = st.executeQuery(newPayment);
+		while(rs.next()){
+			newPayments = rss.getDouble("amount");
+		}
+		double updatedBill = billAmount - newPayments ;
+		String query3 = "UPDATE user" + "SET billAmount =  " + updatedBill + "WHERE meterId = " + meterId ;
+		PreparedStatement psttmtt = con.prepareStatement(query3);
+		psttmtt.executeQuery();
+	}
 }
