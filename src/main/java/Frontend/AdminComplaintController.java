@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 
+import DB.adminPanelDao;
 import DB.connection;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -58,7 +59,14 @@ public class AdminComplaintController implements Initializable{
 	    @FXML
 	    private Label statuslbl;
 	    
+	    @FXML
+	    private Label adminLabel;
 	    
+	    public void GetAdmin(String admin) {
+
+			adminLabel.setText(admin);
+
+	   }
 	    
 	    ObservableList<complaint> listM;
 	    
@@ -89,6 +97,8 @@ public class AdminComplaintController implements Initializable{
 			FXMLLoader loader = new FXMLLoader();
 			Pane root = loader.load(getClass().getResource("/Frontend/Admin.fxml").openStream());
 			Scene scene = new Scene(root);
+			AdminController adminController = (AdminController)loader.getController();
+		    adminController.GetAdmin(adminLabel.getText());
 			primaryStage.setScene(scene);
 			primaryStage.initStyle(StageStyle.TRANSPARENT);
 			primaryStage.show();
@@ -100,9 +110,9 @@ public class AdminComplaintController implements Initializable{
 	    	
 	    	try {
 	    		
-	    		if(col_status.getCellData(index).toString().equals("Solved")) {
+	    		if(col_status.getCellData(index).toString().equals("solved")) {
 	    			conn = connection.createConnection();
-				ps = conn.prepareStatement("delete from feedbacks where meterId = ? and remark = ? ");
+				ps = conn.prepareStatement("delete from feedback where meterId = ? and remark = ? ");
 				ps.setInt(1, col_meterId.getCellData(index));
 				ps.setString(2, col_statment.getCellData(index));
 				ps.executeUpdate();
@@ -115,6 +125,7 @@ public class AdminComplaintController implements Initializable{
 				meterId.setText("");
 	    		
 	    		}
+	    		else {statuslbl.setText("solve the problem first");}
 				conn.close();
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
@@ -129,7 +140,7 @@ public class AdminComplaintController implements Initializable{
 			col_statment.setCellValueFactory(new PropertyValueFactory<complaint, String>("remark")); 
 			col_status.setCellValueFactory(new PropertyValueFactory<complaint, String>("status"));
 			
-			listM = connection.getDatacomplaints();
+			listM = adminPanelDao.getDatacomplaints();
 			table_complaint.setItems(listM);
 	    }
 
@@ -158,11 +169,11 @@ public class AdminComplaintController implements Initializable{
 
 	    	try {
 	    		
-	    		if(!col_status.getCellData(index).toString().equals("Solved")) {
+	    		if(!col_status.getCellData(index).toString().equals("solved")) {
 	    			conn = connection.createConnection();
 	    			stmt = conn.createStatement();
-	    			stmt.execute("update feedbacks set status = 'Solved' where meterId = " + col_meterId.getCellData(index) +" and remark = '"+ col_statment.getCellData(index)+"'");
-	    			statuslbl.setText("Solved");
+	    			stmt.execute("update feedback set status = 'solved' where meterId = " + col_meterId.getCellData(index) +" and remark = '"+ col_statment.getCellData(index)+"'");
+	    			statuslbl.setText("solved");
 	    			
 	    			Update();
 	    			

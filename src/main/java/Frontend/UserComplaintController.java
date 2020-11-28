@@ -1,8 +1,9 @@
 package Frontend;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
-
+import DB.userPanelDAO;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -17,6 +18,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class UserComplaintController implements Initializable {
 	
@@ -28,6 +30,15 @@ public class UserComplaintController implements Initializable {
 	private TextField id;
 	@FXML
 	private TextArea tarea;
+	@FXML
+	private Label userLabel;
+	
+
+	public void GetUser(String user) {
+
+	  userLabel.setText(user);
+
+	}
 	
 	ObservableList<String> list = FXCollections.observableArrayList("Complaint", "Change some Detials", "Feedback", "Suggestion", "Other");
 	
@@ -40,7 +51,7 @@ public class UserComplaintController implements Initializable {
 			Pane root = loader.load(getClass().getResource("/Frontend/Login.fxml").openStream());
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
-			primaryStage.setTitle(" Login ");
+			primaryStage.initStyle(StageStyle.TRANSPARENT);
 			primaryStage.show();
 			
 		} catch (Exception e) {
@@ -55,8 +66,10 @@ public class UserComplaintController implements Initializable {
 			FXMLLoader loader = new FXMLLoader();
 			Pane root = loader.load(getClass().getResource("/Frontend/User.fxml").openStream());
 			Scene scene = new Scene(root);
+			UserController userController = (UserController)loader.getController();
+		    userController.GetUser(userLabel.getText());
 			primaryStage.setScene(scene);
-			primaryStage.setTitle(" USER PANEL ");
+			primaryStage.initStyle(StageStyle.TRANSPARENT);
 			primaryStage.show();
 			
 		} catch (Exception e) {
@@ -64,7 +77,7 @@ public class UserComplaintController implements Initializable {
 		}
 	}
 	
-	public void submit(ActionEvent event) {
+	public void submit(ActionEvent event) throws NumberFormatException, ClassNotFoundException, SQLException {
 		if(combobox.getValue().trim().isEmpty() || id.getText().trim().isEmpty() || tarea.getText().trim().isEmpty()) {
 			lb1.setStyle
 			(
@@ -74,6 +87,7 @@ public class UserComplaintController implements Initializable {
 			lb1.setText("Enter all details");
 			
 		}else {
+			userPanelDAO.userComplaint(Integer.parseInt(id.getText()), combobox.getValue().toString(), tarea.getText());
 			lb1.setStyle
 			(
 					
@@ -87,15 +101,8 @@ public class UserComplaintController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
 		combobox.setItems(list);
 		
 	}
 
 }
-
-/*   String MeterID = id.getText();
-     String Type = combobox.getValue();
-     String Statment = tarea.getText(); 
-     
-*/

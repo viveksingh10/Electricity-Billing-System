@@ -18,6 +18,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class LoginController implements Initializable {
 	 
@@ -48,9 +49,8 @@ public class LoginController implements Initializable {
 			FXMLLoader loader = new FXMLLoader();
 			Pane root = loader.load(getClass().getResource("/Frontend/NewUser.fxml").openStream());
 			Scene scene = new Scene(root);
-			
 			primaryStage.setScene(scene);
-			primaryStage.setTitle(" Welcome to the Company");
+			primaryStage.initStyle(StageStyle.TRANSPARENT);
 			primaryStage.show();
 			
 		} catch (Exception e) {
@@ -66,7 +66,7 @@ public class LoginController implements Initializable {
 			Pane root = loader.load(getClass().getResource("/Frontend/Error.fxml").openStream());
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
-			primaryStage.setTitle(" Forgot Password ");
+			primaryStage.initStyle(StageStyle.TRANSPARENT);
 			primaryStage.show();
 			
 		} catch (Exception e) {
@@ -88,7 +88,7 @@ public class LoginController implements Initializable {
 					   userController.GetUser(txtusername.getText());
 					   Scene scene = new Scene(root);
 					   primaryStage.setScene(scene);
-					   primaryStage.setTitle(" USER PANEL ");
+					   primaryStage.initStyle(StageStyle.TRANSPARENT);
 					   primaryStage.show();
 			   }else {
 				   
@@ -119,7 +119,7 @@ public class LoginController implements Initializable {
 						   adminController.GetAdmin(txtusername.getText());
 						   Scene scene = new Scene(root);
 						   primaryStage.setScene(scene);
-						   primaryStage.setTitle(" ADMINISTRATOR PANEL ");
+						   primaryStage.initStyle(StageStyle.TRANSPARENT);
 						   primaryStage.show();
 				   }else {
 					   

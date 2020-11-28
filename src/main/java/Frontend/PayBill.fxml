@@ -77,6 +77,7 @@
             <Glow />
          </effect>
       </Label>
+      <Label fx:id="userLabel" layoutX="596.0" layoutY="66.0" prefHeight="21.0" prefWidth="99.0" visible="false" />
       <ComboBox fx:id="combobox2" layoutX="307.0"  layoutY="595.0" prefHeight="28.0" prefWidth="107.0" />
       <ComboBox fx:id="combobox3" layoutX="441.0" layoutY="595.0" prefHeight="28.0" prefWidth="107.0" />
       <Button onAction="#submit" layoutX="381.0" layoutY="660.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="90.0" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="SUBMIT" />

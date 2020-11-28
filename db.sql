@@ -23,7 +23,6 @@ meterId INT(5) NOT NULL PRIMARY KEY,
 type VARCHAR(255),
 remark VARCHAR(255),
 status VARCHAR(255),
-FOREIGN KEY (meterId) REFERENCES user(meterId)
 );
 
 CREATE TABLE newPayments(

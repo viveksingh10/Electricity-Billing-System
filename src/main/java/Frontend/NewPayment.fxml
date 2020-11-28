@@ -12,6 +12,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="501.0" prefWidth="765.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.NewPaymentsController">
    <children>
+       <Label fx:id="adminLabel" layoutX="727.0" layoutY="102.0" visible="false" />
       <ImageView fitHeight="295.0" fitWidth="763.0" layoutY="-1.0" pickOnBounds="true">
          <image>
             <Image url="Images/upper.jpg" />
@@ -24,7 +25,7 @@
       </ImageView>
       <TableView fx:id="table_payments" layoutX="30.0" layoutY="111.0" onMouseClicked="#isSelected" prefHeight="195.0" prefWidth="711.0">
         <columns>
-          <TableColumn fx:id="col_meterID" prefWidth="347.0" style="-FX-BACKGROUND-COLOR: #ffffb3;" text="METER ID" />
+          <TableColumn fx:id="col_meterId" prefWidth="347.0" style="-FX-BACKGROUND-COLOR: #ffffb3;" text="METER ID" />
           <TableColumn fx:id="col_amount" prefWidth="363.0" style="-FX-BACKGROUND-COLOR: #d9ffb3;" text="NEW PAYMENTS" />
         </columns>
       </TableView>
@@ -45,7 +46,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="meterID" layoutX="54.0" layoutY="330.0" prefHeight="31.0" prefWidth="226.0" promptText="MeterID" />
+      <TextField fx:id="meterId" layoutX="54.0" layoutY="330.0" prefHeight="31.0" prefWidth="226.0" promptText="MeterID" />
       <TextField fx:id="amount" layoutX="490.0" layoutY="330.0" prefHeight="31.0" prefWidth="226.0" promptText="Amount" />
    </children>
 </AnchorPane>

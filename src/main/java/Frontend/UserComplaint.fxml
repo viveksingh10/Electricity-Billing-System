@@ -30,8 +30,9 @@
             <Image url="Images/images.png" />
          </image>
       </ImageView>
-      <Button layoutX="555.0" layoutY="452.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="81.0" onAction="#submit" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="SUBMIT" />
+      <Button layoutX="555.0" layoutY="452.0" mnemonicParsing="false" onAction="#submit" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="SUBMIT" />
       <TextField fx:id="id" alignment="CENTER" layoutX="278.0" layoutY="95.0" promptText="METER ID" />
       <Label fx:id="lb1" layoutX="256.0" layoutY="199.0" prefHeight="32.0" prefWidth="200.0" />
+      <Label fx:id="userLabel" layoutX="596.0" layoutY="66.0" prefHeight="21.0" prefWidth="99.0" visible="false" />
    </children>
 </AnchorPane>
