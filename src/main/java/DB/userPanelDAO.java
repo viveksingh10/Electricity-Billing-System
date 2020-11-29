@@ -42,9 +42,9 @@ public double getBillAmount(int meterID) throws SQLException, ClassNotFoundExcep
 }
 public static void insertUser( String firstname, String lastname , int meterId , String username , String password , String email , String gender , String addharUid , int billAmount ) throws SQLException, ClassNotFoundException {
 Connection con = connection.createConnection();
-String query = "INSERT into user VALUES(" + firstname + "," + lastname + "," +  meterId + "," + username + "," + password + "," + email + "," + gender + "," + addharUid + "," + billAmount+ ")" ;
-PreparedStatement pt = con.prepareStatement(query);
-pt.executeQuery();
+String query = "INSERT into user VALUES('" + firstname + "','" + lastname + "'," +  meterId + ",'" + username + "','" + password + "','" + email + "','" + gender + "','" + addharUid + "'," + billAmount+ ")" ;
+Statement pt = con.createStatement();
+pt.execute(query);
 
 }
 public static void readFromForgetPage(int meterId) throws SQLException, ClassNotFoundException {
