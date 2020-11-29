@@ -85,8 +85,7 @@ public static void addBill(int meterId , double billAmount) throws ClassNotFound
 	}else {
 		amount = billAmount;
 	}
-	 String query2 = "UPDATE user" + "SET billAmount =  " + amount + "WHERE meterId = " + meterId ;
-     PreparedStatement pt = con.prepareStatement(query2);
-     pt.executeUpdate();
-}
+	 String query2 = "UPDATE user " + "SET billAmount =  " + amount + "WHERE meterId = " + meterId ;
+	 st.executeUpdate(query2);
+	 }
 }

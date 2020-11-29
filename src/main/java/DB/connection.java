@@ -33,7 +33,7 @@ public static Connection createConnection() throws ClassNotFoundException, SQLEx
 //Statement st;
 //static String url="jdbc:mysql://localhost:3306/ElectricityBillingSystem";
 //static String username="vatsuvaksi";
-//static String password="Passup78dr9537titanhello";
+//static String password="";
 //public static Connection createConnection() throws ClassNotFoundException, SQLException {
 //	Class.forName("com.mysql.jdbc.Driver");
 //	con =DriverManager.getConnection(url, username, password);
