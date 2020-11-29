@@ -111,14 +111,13 @@ public static ObservableList<amount>getDatapendingbill() throws ClassNotFoundExc
 			billAmount = rs.getInt("billAmount");
 		}
 		String newPayment = "SELECT * from newPayments where meterId =" + meterId ;
-		int newPayments =0;
+		double newPayments =0;
 		ResultSet rss = st.executeQuery(newPayment);
-		while(rs.next()){
-			newPayments = rss.getInt("amount");
+		while(rss.next()){
+			newPayments = rss.getDouble("amount");
 		}
-		int updatedBill = billAmount - newPayments ;
-		String query3 = "UPDATE user" + "SET billAmount =  " + updatedBill + "WHERE meterId = " + meterId ;
-		PreparedStatement psttmtt = con.prepareStatement(query3);
-		psttmtt.executeQuery();
+		double updatedBill = billAmount - newPayments ;
+		String query3 = "UPDATE user " + "SET billAmount =  " + updatedBill + "WHERE meterId = " + meterId ;
+		st.executeUpdate(query3);
 	}
 }
