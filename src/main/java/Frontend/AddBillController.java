@@ -2,8 +2,11 @@ package Frontend;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.Random;
 import java.util.ResourceBundle;
+
+import DB.userPanelDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -108,7 +111,7 @@ public class AddBillController implements Initializable {
 	
 
     @FXML
-    void submit(ActionEvent event) {
+    void submit(ActionEvent event) throws ClassNotFoundException, SQLException {
     	
     	if(meterId.getText().trim().isEmpty() || amount.getText().trim().isEmpty() || 
     		units.getText().trim().isEmpty() || oneunit.getText().trim().isEmpty()
@@ -117,6 +120,7 @@ public class AddBillController implements Initializable {
             statuslbl.setText("enter all details");
          else
          {
+        	 userPanelDAO.addBill(Integer.parseInt(meterId.getText()), Integer.parseInt(amount.getText()));
         	 statuslbl.setText("Submitted");
          }
 
