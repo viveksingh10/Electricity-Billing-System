@@ -1,9 +1,9 @@
 # Electricity-Billing-System  
 
 ## This app is built for following purpose:-  
-* For controlling authorized Users login.  
-* Maintaining Users record.  
-* Paying elctricity bill from any location graphically.   
+* For controlling authorized users login.  
+* Maintaining users record.  
+* Paying elctricity bill from anywhere in a graphically manner.   
 * User Friendly.  
 * For Implemention of SQLite in Java GUI.  
 * This is a Mini-project developed using JavaFX, SQLite, And CSS  
@@ -13,7 +13,7 @@
 * View all pending payments.  
 * Add New Bills.  
 * Check users feedbacks and complaints.  
-* Update in user's records.  
+* Update user's records.  
 
 ## Users Have Following Access for this app :-  
 * Create new account.  
@@ -21,7 +21,7 @@
 * View bill amount .
 * Pay bill amount.  
 * Submit feedabacks and complaints.
-* Reset password in case user forgot their password.
+* Reset password, in case user forgot their password.
 
 ## Technologies used:-
 * JavaFX  
@@ -34,6 +34,7 @@
 **Note:- This is a basic project so we have not think much about data security.**
 
 **"Suggestions and project Improvements are Invited!"**  
-**Thanks a lot** 
-**Project Leader**
+  
+**Thanks a lot**   
+**Project Leader**  
 **Vivek Singh**
