@@ -6,6 +6,7 @@ import java.sql.SQLException;
 import java.util.Random;
 import java.util.ResourceBundle;
 
+import DB.adminPanelDao;
 import DB.userPanelDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -50,6 +51,11 @@ public class AddBillController implements Initializable {
 		adminLabel.setText(admin);
 
    }
+    public void calculate(ActionEvent event) {
+    	
+    	double value = Double.parseDouble(units.getText()) * Integer.parseInt(oneunit.getText());
+    	amount.setText(Double.toString(value));
+    }
 
     @FXML
     void addmore(ActionEvent event) {
@@ -59,8 +65,13 @@ public class AddBillController implements Initializable {
 		units.setText("");
 		amount.setText("");
 		captcha.setText("");
+		oneunit.setText("11");
+		statuslbl.setStyle
+		(
+			 "-fx-background-color: transparent;"
+		);
 		statuslbl.setText("");
-
+		
     }
 
     @FXML
@@ -116,14 +127,41 @@ public class AddBillController implements Initializable {
     	if(meterId.getText().trim().isEmpty() || amount.getText().trim().isEmpty() || 
     		units.getText().trim().isEmpty() || oneunit.getText().trim().isEmpty()
     		|| captcha.getText().trim().isEmpty()) 
-    		
-            statuslbl.setText("enter all details");
-         else
+    		{
+    		statuslbl.setStyle
+			(
+				 "-fx-background-color: #ffb3b3;"
+				+ "-fx-text-fill: red;"
+			);
+            statuslbl.setText("Enter all details");}
+         else if(adminPanelDao.checkMeterIdExist(Integer.parseInt(meterId.getText())) && Integer.parseInt(captcha.getText()) == Integer.parseInt(lbl_captcha.getText()))
          {
-        	 userPanelDAO.addBill(Integer.parseInt(meterId.getText()), Integer.parseInt(amount.getText()));
+        	 
+        	 userPanelDAO.addBill(Integer.parseInt(meterId.getText()), Double.parseDouble(amount.getText()));
+        	 statuslbl.setStyle
+ 			(
+ 				 "-fx-background-color: grey;"
+ 				+ "-fx-text-fill: black;"
+ 			);
         	 statuslbl.setText("Submitted");
          }
-
+         else if(Integer.parseInt(captcha.getText()) != Integer.parseInt(lbl_captcha.getText()))
+         {
+        	 statuslbl.setStyle
+ 			(
+ 				 "-fx-background-color: #ffb3b3;"
+ 				+ "-fx-text-fill: red;"
+ 			);
+        	 statuslbl.setText("Invalid Captcha");
+         }
+         else {
+        	 statuslbl.setStyle
+ 			(
+ 				 "-fx-background-color: #ffb3b3;"
+ 				+ "-fx-text-fill: red;"
+ 			);
+        	 statuslbl.setText("Invalid MeterID");
+         }
     }
 
 	@Override

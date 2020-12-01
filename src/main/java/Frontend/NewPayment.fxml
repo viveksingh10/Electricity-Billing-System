@@ -46,7 +46,7 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Label>
-      <TextField fx:id="meterId" layoutX="54.0" layoutY="330.0" prefHeight="31.0" prefWidth="226.0" promptText="MeterID" />
-      <TextField fx:id="amount" layoutX="490.0" layoutY="330.0" prefHeight="31.0" prefWidth="226.0" promptText="Amount" />
+      <TextField fx:id="meterId" layoutX="54.0" layoutY="330.0" prefHeight="31.0" prefWidth="226.0" editable="false" promptText="MeterID" />
+      <TextField fx:id="amount" layoutX="490.0" layoutY="330.0" prefHeight="31.0" prefWidth="226.0" editable="false" promptText="Amount" />
    </children>
 </AnchorPane>

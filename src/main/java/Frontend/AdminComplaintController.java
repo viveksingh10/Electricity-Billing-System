@@ -87,6 +87,11 @@ public class AdminComplaintController implements Initializable{
 	    	meterId.setText(col_meterId.getCellData(index).toString());
 	    	type.setText(col_type.getCellData(index).toString());
 	    	remark.setText(col_statment.getCellData(index).toString());
+	    	statuslbl.setStyle
+			(
+				 "-fx-background-color:  #6699ff;"
+			);
+	    	statuslbl.setText("One query selected");
 
 	    }
 
@@ -107,15 +112,18 @@ public class AdminComplaintController implements Initializable{
 
 	    @FXML
 	    void delete(ActionEvent event) throws ClassNotFoundException {
-	    	
 	    	try {
 	    		
-	    		if(col_status.getCellData(index).toString().equals("solved")) {
+	    		if(col_status.getCellData(index).toString().equals("Solved") && meterId.getText()!="") {
 	    			conn = connection.createConnection();
 				ps = conn.prepareStatement("delete from feedback where meterId = ? and remark = ? ");
 				ps.setInt(1, col_meterId.getCellData(index));
 				ps.setString(2, col_statment.getCellData(index));
 				ps.executeUpdate();
+				statuslbl.setStyle
+				(
+					 "-fx-background-color:  #6699ff;"
+				);
 				statuslbl.setText("Deleted");
 				
 				Update();
@@ -123,13 +131,24 @@ public class AdminComplaintController implements Initializable{
 				type.setText("");
 				remark.setText("");
 				meterId.setText("");
-	    		
+				index = -1;
+		
 	    		}
-	    		else {statuslbl.setText("solve the problem first");}
+	    		else {
+	    			statuslbl.setStyle
+					(
+						 "-fx-background-color:  #ffb3b3 ;"
+						 + "-fx-text-fill: red;"
+					);
+	    			statuslbl.setText("Solve the problem first");}
 				conn.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				statuslbl.setText("error");
+			} catch (Exception e) {
+				statuslbl.setStyle
+				(
+					 "-fx-background-color:  #ffb3b3;"
+					 + "-fx-text-fill: red;"
+				);
+				statuslbl.setText("Select a column first");
 			}
 
 	    }
@@ -169,23 +188,39 @@ public class AdminComplaintController implements Initializable{
 
 	    	try {
 	    		
-	    		if(!col_status.getCellData(index).toString().equals("solved")) {
+	    		if(!col_status.getCellData(index).toString().equals("Solved") && meterId.getText()!=type.getText()) {
 	    			conn = connection.createConnection();
 	    			stmt = conn.createStatement();
-	    			stmt.execute("update feedback set status = 'solved' where meterId = " + col_meterId.getCellData(index) +" and remark = '"+ col_statment.getCellData(index)+"'");
-	    			statuslbl.setText("solved");
+	    			stmt.execute("update feedback set status = 'Solved' where meterId = " + col_meterId.getCellData(index) +" and remark = '"+ col_statment.getCellData(index)+"'");
+	    			statuslbl.setStyle
+					(
+						 "-fx-background-color:  #6699ff;"
+					);
+	    			statuslbl.setText("Solved");
 	    			
 	    			Update();
 	    			
 	    			type.setText("");
 	    			remark.setText("");
 	    			meterId.setText("");
+	    			index = -1;
+	    			
 	    		}else {
+	    			statuslbl.setStyle
+					(
+						 "-fx-background-color:   #ffb3b3;"
+						 + "-fx-text-fill: red;"
+					);
 	    			statuslbl.setText("Already Solved");
 	    		}
 	    		conn.close();
 	    	}catch(Exception e) {
-	    		statuslbl.setText("Error");
+	    		statuslbl.setStyle
+				(
+					 "-fx-background-color:   #ffb3b3;"
+					 + "-fx-text-fill: red;"
+				);
+	    		statuslbl.setText("Select a column first");
 	    	}
 	    }
 

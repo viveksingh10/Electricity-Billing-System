@@ -32,9 +32,9 @@
          </font>
       </Label>
       <Button layoutX="490.0" layoutY="381.0" mnemonicParsing="false" onAction="#notify" style="-fx-background-color: #BF9998;" text="NOTIFY CUSTOMER" />
-      <Label fx:id="statuslbl" alignment="CENTER" contentDisplay="CENTER" layoutX="304.0" layoutY="65.0" prefHeight="57.0" prefWidth="162.0" style="-fx-background-color: SKY BLUE;" text="STATUS LABEL" textFill="#aedae1">
+      <Label fx:id="statuslbl" alignment="CENTER" contentDisplay="CENTER" layoutX="276.0" layoutY="65.0" prefHeight="57.0" prefWidth="218.0" style="-fx-background-color: SKY BLUE;" textFill="#43575b">
          <font>
-            <Font name="System Bold" size="18.0" />
+            <Font name="Berlin Sans FB" size="21.0" />
          </font>
       </Label>
       <Button layoutX="718.0" layoutY="-1.0" mnemonicParsing="false" onAction="#exxit" prefHeight="31.0" prefWidth="50.0" style="-FX-BACKGROUND-COLOR: #BF9998;" text="EXIT" />
@@ -43,7 +43,7 @@
             <Font name="Candara Bold" size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="amount" alignment="CENTER" layoutX="108.0" layoutY="419.0" promptText="AMOUNT" />
-      <TextField fx:id="meterId" alignment="CENTER" layoutX="108.0" layoutY="366.0" promptText="METER ID" />
+      <TextField fx:id="amount" alignment="CENTER" editable="false" layoutX="108.0" layoutY="419.0" promptText="AMOUNT" />
+      <TextField fx:id="meterId" alignment="CENTER" editable="false" layoutX="108.0" layoutY="366.0" promptText="METER ID" />
    </children>
 </AnchorPane>

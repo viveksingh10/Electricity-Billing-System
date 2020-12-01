@@ -56,7 +56,7 @@ public static ObservableList<payments>getDatapayments() throws ClassNotFoundExce
 		Statement stmt = con.createStatement();
 		ResultSet rs = stmt.executeQuery("select * from newPayments");
 		while(rs.next()) {
-			list.add(new payments(rs.getInt("meterId"), rs.getInt("amount")));
+			list.add(new payments(rs.getInt("meterId"), rs.getDouble("amount")));
 		}
 		con.close();
 	}catch(Exception e) {
@@ -72,7 +72,7 @@ public static ObservableList<amount>getDatapendingbill() throws ClassNotFoundExc
 		Statement stmt = con.createStatement();
 		ResultSet rs = stmt.executeQuery("select * from user where billAmount>0");
 		while(rs.next()) {
-			list.add(new amount(rs.getInt("meterId"), rs.getInt("billamount")));
+			list.add(new amount(rs.getInt("meterId"), rs.getDouble("billamount")));
 		}
 		con.close();
 	}catch(Exception e) {
@@ -106,7 +106,7 @@ public static ObservableList<amount>getDatapendingbill() throws ClassNotFoundExc
 		Statement st = con.createStatement();
 		String queryForOriginalAmount ="SELECT * from user where meterId =" + meterId ;
 		ResultSet rs = st.executeQuery(queryForOriginalAmount);
-		int billAmount =0;
+		double billAmount =0.0;
 		while(rs.next()) {
 			billAmount = rs.getInt("billAmount");
 		}
@@ -116,7 +116,7 @@ public static ObservableList<amount>getDatapendingbill() throws ClassNotFoundExc
 		while(rss.next()){
 			newPayments = rss.getInt("amount");
 		}
-		int updatedBill = billAmount - newPayments ;
+		double updatedBill = billAmount - newPayments ;
 		String query3 = "UPDATE user " + "SET billAmount =  " + updatedBill + " WHERE meterId = " + meterId ;
 		st.executeUpdate(query3);
 	}

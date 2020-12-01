@@ -43,7 +43,8 @@ public class PayBillController implements Initializable {
 	private TextField meterID;
 	@FXML
 	private Label userLabel;
-	
+	@FXML
+	private Label statlabel;
 
 	
     ObservableList<String> list1 = FXCollections.observableArrayList("VISA", "DEBIT", "CREDIT");
@@ -53,9 +54,10 @@ public class PayBillController implements Initializable {
     public void GetAmount(String ID, String user) throws ClassNotFoundException, SQLException {
 		
     	int mid = Integer.parseInt(ID);
-    	int value = (int) getBillAmount(mid,user);
-		lb1.setText(Integer.toString(value));
+    	double value = getBillAmount(mid,user);
+		lb1.setText(Double.toString(value));
 		userLabel.setText(user);
+		meterID.setText(ID);
 
    }
     
@@ -102,20 +104,27 @@ public class PayBillController implements Initializable {
 		if(cv.getText().trim().isEmpty()||meterID.getText().trim().isEmpty()||cardno.getText().trim().isEmpty()|| amount.getText().trim().isEmpty()) {
 			lb2.setStyle
 			(
-				 "-fx-background-color: white;"
+				 "-fx-background-color: #ffb3b3;"
 				+ "-fx-text-fill: red;"
 			);
-			lb2.setText("Failed"); 
+			lb2.setText("INVALID ENTRIES"); 
 			
 		}else {
-			userPanelDAO.newPayments(Integer.parseInt(meterID.getText()), Integer.parseInt(amount.getText()));
+			userPanelDAO.newPayments(Integer.parseInt(meterID.getText()), Double.parseDouble(amount.getText()));
 			lb2.setStyle
 			(
 					
 					 "-fx-background-color: #1aff1a;"
 					+ "-fx-text-fill: black;"
 			);
-		lb2.setText("Submitted");
+		lb2.setText("AMOUNT PAID");
+		statlabel.setStyle
+		(
+				
+				 "-fx-background-color: #ccffff;"
+				+ "-fx-text-fill: blue;"
+		);
+	statlabel.setText("The Amount will be updated when admin accepts your payment");
 		
 		}	
 	}

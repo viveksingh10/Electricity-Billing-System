@@ -9,7 +9,7 @@
 
 <AnchorPane prefHeight="603.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.AdminController">
    <children>
-     <ImageView fitHeight="608.0" fitWidth="912.0" layoutX="-7.0" layoutY="-2.0" pickOnBounds="true">
+     <ImageView fitHeight="608.0" fitWidth="912.0" layoutX="-6.0" layoutY="-1.0" pickOnBounds="true">
          <image>
             <Image url="Images/img2.jpg" />
          </image>
@@ -38,14 +38,17 @@
             <Image url="Images/img6.jpg" />
          </image>
       </ImageView> 
-      <Label fx:id="adminLBL" layoutX="313.0" layoutY="89.0" prefHeight="32.0" prefWidth="297.0" />
-      <Button layoutX="416.0" layoutY="146.0" minWidth="52.0" mnemonicParsing="false" onAction="#out" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="LOGOUT" />
+      <Label fx:id="adminLBL" alignment="CENTER" contentDisplay="CENTER" layoutX="385.0" layoutY="90.0" prefHeight="36.0" prefWidth="136.0" style="-fx-text-fill: #e4dfdf;">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font></Label>
+      <Button layoutX="421.0" layoutY="146.0" minWidth="52.0" mnemonicParsing="false" onAction="#out" prefHeight="32.0" prefWidth="68.0" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="LOGOUT" />
       <Label layoutX="293.0" layoutY="29.0" prefHeight="18.0" prefWidth="362.0" style="-fx-text-fill: #e4dfdf;" text="ADMIN USER PANEL" textAlignment="CENTER">
          <font>
             <Font name="Berlin Sans FB" size="40.0" />
          </font>
       </Label>
-      <Button layoutX="836.0" mnemonicParsing="false" onAction="#exxit" prefHeight="26.0" prefWidth="68.0" style="-fx-background-color: #008ae6; -fx-text-fill: white;" text="EXIT" />
+      <Button layoutX="836.0" layoutY="1.0" mnemonicParsing="false" onAction="#exxit" prefHeight="26.0" prefWidth="68.0" style="-fx-background-color: #008ae6; -fx-text-fill: white;" text="EXIT" />
       <Button mnemonicParsing="false" onAction="#out" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="MAIN MENU" />
      
    </children>

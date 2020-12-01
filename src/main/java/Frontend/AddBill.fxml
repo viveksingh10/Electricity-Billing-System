@@ -5,19 +5,19 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.InnerShadow?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="626.0" prefWidth="819.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.AddBillController">
+<AnchorPane minHeight="619.0" prefHeight="560.0" prefWidth="819.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.AddBillController">
    <children>
-   <ImageView fitHeight="626.0" fitWidth="819.0" pickOnBounds="true">
+   <ImageView fitHeight="744.0" fitWidth="819.0" pickOnBounds="true">
          <image>
             <Image url="Images/addbillbg.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="lbl_captcha" alignment="CENTER" contentDisplay="CENTER" layoutX="253.0" layoutY="462.0" opacity="0.71" prefHeight="31.0" prefWidth="113.0" style="-fx-background-color: WHITE;" text="JSB45d">
+      <Label fx:id="lbl_captcha" alignment="CENTER" contentDisplay="CENTER" layoutX="275.0" layoutY="462.0" opacity="0.71" prefHeight="31.0" prefWidth="113.0" style="-fx-background-color: WHITE;" text="JSB45d">
          <font>
             <Font size="24.0" />
          </font>
@@ -25,18 +25,18 @@
             <InnerShadow />
          </effect></Label>
       <TextField fx:id="meterId" layoutX="444.0" layoutY="160.0" prefHeight="31.0" prefWidth="214.0" />
-      <TextField fx:id="oneunit" layoutX="444.0" layoutY="212.0" prefHeight="31.0" prefWidth="214.0" />
+      <TextField fx:id="oneunit" editable="false" layoutX="444.0" layoutY="212.0" prefHeight="31.0" prefWidth="214.0" text="11" />
       <TextField fx:id="units" layoutX="444.0" layoutY="261.0" prefHeight="31.0" prefWidth="214.0" />
-      <TextField fx:id="amount" layoutX="444.0" layoutY="384.0" prefHeight="31.0" prefWidth="214.0" />
+      <TextField fx:id="amount" editable="false" layoutX="444.0" layoutY="384.0" prefHeight="31.0" prefWidth="214.0" />
       <TextField fx:id="captcha" layoutX="444.0" layoutY="464.0" prefHeight="31.0" prefWidth="214.0" />
-      <Label fx:id="statuslbl" layoutX="328.0" layoutY="79.0" prefHeight="53.0" prefWidth="164.0" text="STATUS LABEL">
+      <Label fx:id="statuslbl" alignment="CENTER" contentDisplay="CENTER" layoutX="328.0" layoutY="79.0" prefHeight="53.0" prefWidth="164.0">
          <font>
             <Font name="Cambria Math" size="24.0" />
          </font>
       </Label>
-      <Button mnemonicParsing="false" onAction="#dashboard" style="-fx-background-color: #bfbfbf;" text="DASHBOARD" />
-      <Button layoutX="765.0" layoutY="-2.0" mnemonicParsing="false" onAction="#exxit" style="-fx-background-color: #bfbfbf;" text="EXIT" />
-      <Button layoutX="751.0" layoutY="594.0" mnemonicParsing="false" onAction="#logout" style="-fx-background-color: #bfbfbf;" text="LOGOUT" />
+      <Button layoutX="2.0" layoutY="2.0" mnemonicParsing="false" onAction="#dashboard" prefHeight="31.0" prefWidth="120.0" style="-fx-background-color: #bfbfbf;" text="DASHBOARD" />
+      <Button layoutX="756.0" layoutY="1.0" mnemonicParsing="false" onAction="#exxit" prefHeight="31.0" prefWidth="62.0" style="-fx-background-color: #bfbfbf;" text="EXIT" />
+      <Button layoutX="736.0" layoutY="582.0" mnemonicParsing="false" onAction="#logout" prefHeight="35.0" prefWidth="82.0" style="-fx-background-color: #bfbfbf;" text="LOGOUT" />
       <Button layoutX="703.0" layoutY="464.0" mnemonicParsing="false" onAction="#reload" prefHeight="32.0" prefWidth="82.0" style="-fx-background-color: #bfbfbf;" text="RELOAD" />
       <Button layoutX="125.0" layoutY="542.0" mnemonicParsing="false" onAction="#submit" prefHeight="32.0" prefWidth="113.0" style="-fx-background-color: #bfbfbf;" text="SUBMIT" />
       <Button layoutX="551.0" layoutY="542.0" mnemonicParsing="false" onAction="#addmore" prefHeight="32.0" prefWidth="113.0" style="-fx-background-color: #bfbfbf;" text="ADD MORE" />
@@ -76,5 +76,6 @@
          </image>
       </ImageView>
       <Label fx:id="adminLabel" layoutX="703.0" layoutY="95.0" />
+      <Button layoutX="457.0" layoutY="318.0" mnemonicParsing="false" onAction="#calculate" prefHeight="31.0" prefWidth="184.0" style="-fx-background-color: #bfbfbf;" text="CALCULATE AMOUNT" />
    </children>
 </AnchorPane>

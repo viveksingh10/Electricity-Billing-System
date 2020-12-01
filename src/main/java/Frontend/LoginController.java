@@ -136,6 +136,10 @@ public class LoginController implements Initializable {
 			       	e.printStackTrace();
 	   	           }
            }
+	   else {
+		      isConnected.setStyle( "-fx-background-color:  #ffb3b3;"+ "-fx-text-fill: red;");
+	          isConnected.setText("User or Admin? Select Login type");
+	   }
    }
 
 	public void initialize(URL arg0, ResourceBundle arg1) {

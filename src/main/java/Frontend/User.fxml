@@ -31,18 +31,18 @@
             <Font name="Berlin Sans FB" size="23.0" />
          </font>
       </Label>
-      <Label fx:id="lb1" alignment="CENTER" layoutX="226.0" layoutY="79.0" prefHeight="32.0" prefWidth="230.0">
+      <Label fx:id="lb1" alignment="CENTER" layoutX="273.0" layoutY="79.0" prefHeight="32.0" prefWidth="140.0">
          <font>
-            <Font name="Berlin Sans FB" size="16.0" />
+            <Font name="Berlin Sans FB" size="24.0" />
          </font></Label>
       <ButtonBar layoutX="135.0" layoutY="397.0" prefHeight="40.0" prefWidth="200.0" />
-      <Label alignment="CENTER" layoutX="257.0" layoutY="124.0" prefHeight="32.0" prefWidth="76.0" style="-fx-background-color: #666666; -fx-text-fill: white;" text="Meter ID">
+      <Label alignment="CENTER" layoutX="268.0" layoutY="124.0" prefHeight="32.0" prefWidth="76.0" style="-fx-background-color: #666666; -fx-text-fill: white;" text="Meter ID">
          <font>
             <Font name="Berlin Sans FB" size="16.0" />
          </font></Label>
       <Button layoutX="426.0" layoutY="423.0" mnemonicParsing="false" onAction="#out1" prefHeight="40.0" prefWidth="213.0" style="-fx-background-color: #008ae6; -fx-text-fill: white;" text="COMPLAINTS/FEEDBACK" />
       <Button layoutX="637.0" layoutY="1.0" mnemonicParsing="false" onAction="#exxit" prefHeight="32.0" prefWidth="54.0" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="EXIT" />
-      <Button layoutX="305.0" layoutY="167.0" mnemonicParsing="false" onAction="#out" prefHeight="32.0" prefWidth="76.0" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="LOGOUT" />
+      <Button layoutX="300.0" layoutY="167.0" mnemonicParsing="false" onAction="#out" prefHeight="32.0" prefWidth="76.0" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="LOGOUT" />
       <Button layoutY="1.0" mnemonicParsing="false" onAction="#out" prefHeight="32.0" prefWidth="85.0" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="MAIN MENU" />
     <Button layoutX="59.0" layoutY="424.0" mnemonicParsing="false" onAction="#out2" prefHeight="40.0" prefWidth="214.0" style="-fx-background-color: #008ae6; -fx-text-fill: white;" text="CHECK PENDING BILL" />
     <ImageView fitHeight="168.0" fitWidth="214.0" layoutX="59.0" layoutY="256.0" pickOnBounds="true">
@@ -55,7 +55,7 @@
             <Image url="Images/img6.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="lb2" layoutX="343.0" layoutY="122.0" prefHeight="32.0" prefWidth="54.0">
+      <Label fx:id="lb2" layoutX="354.0" layoutY="122.0" prefHeight="32.0" prefWidth="76.0">
          <font>
             <Font size="16.0" />
          </font></Label>

@@ -4,6 +4,7 @@ import java.net.URL;
 import java.sql.SQLException;
 import java.util.ResourceBundle;
 
+import DB.adminPanelDao;
 import DB.userPanelDAO;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -15,6 +16,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class ErrorController implements Initializable {
 	
@@ -34,13 +36,13 @@ public class ErrorController implements Initializable {
 		if(uname.getText().trim().isEmpty() || mid.getText().trim().isEmpty() || ano.getText().trim().isEmpty()) {
 			mylbl.setStyle
 			(
-				 "-fx-background-color: white;"
+				 "-fx-background-color: #ffb3b3;"
 				+ "-fx-text-fill: red;"
 			);
 			mylbl.setText("Invalid Details");
 			
-		}else {
-			
+		}else if (adminPanelDao.checkMeterIdExist(Integer.parseInt(mid.getText())))
+		{
 			userPanelDAO.readFromForgetPage(Integer.parseInt(mid.getText()));
 			mylbl.setStyle
 			(
@@ -48,7 +50,16 @@ public class ErrorController implements Initializable {
 					 "-fx-background-color: #1aff1a;"
 					+ "-fx-text-fill: black;"
 			);
-		mylbl.setText("Your password reset request is registered, will send you password reset link on your mail");
+		mylbl.setText("Problem Registered");
+		}
+		else {
+			mylbl.setStyle
+			(
+				 "-fx-background-color: #ffb3b3;"
+				+ "-fx-text-fill: red;"
+			);
+
+			mylbl.setText("Invalid MeterID");
 		
 		}
 		
@@ -70,7 +81,7 @@ public class ErrorController implements Initializable {
 			Pane root = loader.load(getClass().getResource("/Frontend/Login.fxml").openStream());
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
-			primaryStage.setTitle(" Login ");
+			primaryStage.initStyle(StageStyle.TRANSPARENT);
 			primaryStage.show();
 		
 		} catch (Exception e) {
@@ -79,7 +90,27 @@ public class ErrorController implements Initializable {
 	}
 
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		// TODO Auto-generated method stub
+		uname.setStyle(
+				
+
+				 "-fx-background-color: black;"
+				+ "-fx-text-fill: white;"
+				+"-fx-border-color: white;"
+				);
+		mid.setStyle(
+				
+
+				 "-fx-background-color: black;"
+				+ "-fx-text-fill: white;"
+				+"-fx-border-color: white;"
+				);
+		ano.setStyle(
+				
+
+				 "-fx-background-color: black;"
+				+ "-fx-text-fill: white;" + 
+				"-fx-border-color: white;"
+				);
 		
 	}
 }

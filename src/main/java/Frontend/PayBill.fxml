@@ -11,6 +11,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="731.0" prefWidth="938.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Frontend.PayBillController">
    <children>
@@ -24,8 +25,8 @@
             <Image url="Images/Billbg.PNG" />
          </image>
       </ImageView>
-      <Button onAction="#dashboad" layoutY="-2.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="90.0" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="DASHBOAD" />
-      <Button onAction="#exxit" layoutX="885.0" layoutY="-2.0" mnemonicParsing="false" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="EXIT" />
+      <Button layoutY="-2.0" mnemonicParsing="false" onAction="#dashboad" prefHeight="32.0" prefWidth="90.0" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="DASHBOAD" />
+      <Button layoutX="857.0" layoutY="2.0" mnemonicParsing="false" onAction="#exxit" prefHeight="31.0" prefWidth="79.0" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="EXIT" />
       <Label alignment="CENTER" layoutX="405.0" layoutY="10.0" prefHeight="40.0" prefWidth="203.0" style="-fx-border-color: CYAN; -fx-font-size: 30; -fx-text-fill: GREY;" text="BILL STATUS" />
       <ButtonBar layoutX="347.0" layoutY="114.0" prefHeight="40.0" prefWidth="245.0" style="-fx-border-color: CYAN;">
          <buttons>
@@ -36,14 +37,14 @@
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="246.0" layoutY="218.0" prefHeight="40.0" prefWidth="409.0" style="-fx-border-color: CYAN; -fx-font-size: 20; -fx-text-fill: SKY BLUE;" text="PAY BILL" />
      
       <Separator layoutX="230.0" layoutY="281.0" orientation="VERTICAL" prefHeight="433.0" prefWidth="16.0" />
-      <TextField fx:id="meterID" alignment="CENTER" layoutX="309.0" layoutY="288.0" prefHeight="26.0" prefWidth="239.0" promptText="METER ID" />
+      <TextField fx:id="meterID" alignment="CENTER" editable="false" layoutX="309.0" layoutY="288.0" prefHeight="26.0" prefWidth="239.0" promptText="METER ID" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="281.0" prefHeight="40.0" prefWidth="182.0" style="-fx-border-color: CYAN; -fx-font-size: 20; -fx-text-fill: SKY BLUE;" text="METER ID">
          <effect>
             <Glow />
          </effect>
       </Label>
       <TextField fx:id="amount" alignment="CENTER" layoutX="307.0" layoutY="352.0" prefHeight="26.0" prefWidth="239.0" promptText="AMOUNT" />
-      <Button onAction="#login" layoutX="870.0" layoutY="698.0" mnemonicParsing="false" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="LOGOUT" />
+      <Button layoutX="847.0" layoutY="698.0" mnemonicParsing="false" onAction="#login" prefHeight="31.0" prefWidth="90.0" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="LOGOUT" />
       <Label alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="345.0" prefHeight="40.0" prefWidth="182.0" style="-fx-border-color: CYAN; -fx-font-size: 20; -fx-text-fill: SKY BLUE;" text="AMOUNT">
          <effect>
             <Glow />
@@ -72,14 +73,22 @@
             <Glow />
          </effect>
       </Label>
-       <Label fx:id="lb2" alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="650.0" prefHeight="40.0" prefWidth="182.0">
+       <Label fx:id="lb2" alignment="CENTER" contentDisplay="CENTER" layoutX="26.0" layoutY="658.0" prefHeight="40.0" prefWidth="182.0">
          <effect>
             <Glow />
          </effect>
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
       </Label>
       <Label fx:id="userLabel" layoutX="596.0" layoutY="66.0" prefHeight="21.0" prefWidth="99.0" visible="false" />
-      <ComboBox fx:id="combobox2" layoutX="307.0"  layoutY="595.0" prefHeight="28.0" prefWidth="107.0" />
+      <ComboBox fx:id="combobox2" layoutX="307.0" layoutY="595.0" prefHeight="28.0" prefWidth="107.0" />
       <ComboBox fx:id="combobox3" layoutX="441.0" layoutY="595.0" prefHeight="28.0" prefWidth="107.0" />
-      <Button onAction="#submit" layoutX="381.0" layoutY="660.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="90.0" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="SUBMIT" />
+      <Button layoutX="381.0" layoutY="660.0" mnemonicParsing="false" onAction="#submit" prefHeight="32.0" prefWidth="90.0" style="-fx-background-color: #008ae6; -fx-text-fill: WHITE;" text="SUBMIT" />
+      <Label fx:id="statlabel" alignment="CENTER" contentDisplay="CENTER" layoutX="278.0" layoutY="178.0" style="-fx-background-color: #ccffff; -fx-text-fill: blue;">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

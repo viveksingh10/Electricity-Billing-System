@@ -23,6 +23,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class NewUserController implements Initializable {
 	
@@ -56,10 +57,10 @@ public class NewUserController implements Initializable {
 		} else {
 			mylbl.setStyle
 			(
-				 "-fx-background-color: white;"
+				 "-fx-background-color: #ffb3b3;"
 				+ "-fx-text-fill: red;"
 			);
-			mylbl.setText("File is not valid");
+			mylbl.setText("Invalid File");
 		}
 	}
 	
@@ -75,10 +76,10 @@ public class NewUserController implements Initializable {
 				email.getText().trim().isEmpty() || combobox.getValue().trim().isEmpty() || listview.getItems().isEmpty() ) {
 			mylbl.setStyle
 			(
-				 "-fx-background-color: white;"
+				 "-fx-background-color: #ffb3b3;"
 				+ "-fx-text-fill: red;"
 			);
-			mylbl.setText("Enter all fields correctly");
+			mylbl.setText("Enter all Details");
 			
 		}else {
 			
@@ -90,7 +91,7 @@ public class NewUserController implements Initializable {
 					 "-fx-background-color: #1aff1a;"
 					+ "-fx-text-fill: black;"
 			);
-		mylbl.setText("Details submitted, you can login now");
+		mylbl.setText("Registered");
 		
 		}
 		
@@ -112,7 +113,7 @@ public class NewUserController implements Initializable {
 			Pane root = loader.load(getClass().getResource("/Frontend/Login.fxml").openStream());
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
-			primaryStage.setTitle(" Login ");
+			primaryStage.initStyle(StageStyle.TRANSPARENT);
 			primaryStage.show();
 		
 		} catch (Exception e) {

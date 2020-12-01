@@ -34,9 +34,10 @@ public class UserComplaintController implements Initializable {
 	private Label userLabel;
 	
 
-	public void GetUser(String user) {
+	public void GetUser(String user, String meterid) {
 
 	  userLabel.setText(user);
+	  id.setText(meterid);
 
 	}
 	
@@ -78,13 +79,13 @@ public class UserComplaintController implements Initializable {
 	}
 	
 	public void submit(ActionEvent event) throws NumberFormatException, ClassNotFoundException, SQLException {
-		if(combobox.getValue().trim().isEmpty() || id.getText().trim().isEmpty() || tarea.getText().trim().isEmpty()) {
+		if(combobox.getValue()==null || id.getText().trim().isEmpty() || tarea.getText().trim().isEmpty()) {
 			lb1.setStyle
 			(
-				 "-fx-background-color: white;"
+				 "-fx-background-color: #ffb3b3;"
 				+ "-fx-text-fill: red;"
 			);
-			lb1.setText("Enter all details");
+			lb1.setText("ENTER ALL DETAILS");
 			
 		}else {
 			userPanelDAO.userComplaint(Integer.parseInt(id.getText()), combobox.getValue().toString(), tarea.getText());
@@ -94,7 +95,7 @@ public class UserComplaintController implements Initializable {
 					 "-fx-background-color: #1aff1a;"
 					+ "-fx-text-fill: black;"
 			);
-		lb1.setText("Submitted");
+		lb1.setText("DETAILS SUBMITTED");
 		
 		}
 	}

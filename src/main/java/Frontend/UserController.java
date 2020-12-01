@@ -66,7 +66,7 @@ public class UserController {
 			Pane root = loader.load(getClass().getResource("/Frontend/UserComplaint.fxml").openStream());
 			Scene scene = new Scene(root);
 			UserComplaintController usercomplaintController = (UserComplaintController)loader.getController();
-		    usercomplaintController.GetUser(lb1.getText());
+		    usercomplaintController.GetUser(lb1.getText(), lb2.getText());
 			primaryStage.setScene(scene);
 			primaryStage.initStyle(StageStyle.TRANSPARENT);
 			primaryStage.show();

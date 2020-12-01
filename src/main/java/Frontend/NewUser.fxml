@@ -69,9 +69,9 @@
       </Label>
       <Button fx:id="btn1" layoutX="518.0" layoutY="447.0" mnemonicParsing="false" onAction="#ButtonAction" prefHeight="32.0" prefWidth="81.0" style="-fx-background-color: #b3cccc; -fx-border-color: black;" text="UPLOAD" />
       <ListView fx:id="listview" layoutX="313.0" layoutY="448.0" prefHeight="32.0" prefWidth="186.0" />
-      <Label fx:id="mylbl" layoutX="282.0" layoutY="69.0" prefHeight="32.0" prefWidth="247.0">
+      <Label fx:id="mylbl" alignment="CENTER" contentDisplay="CENTER" layoutX="295.0" layoutY="69.0" prefHeight="32.0" prefWidth="172.0">
          <font>
-            <Font name="Berlin Sans FB" size="16.0" />
+            <Font name="Berlin Sans FB" size="22.0" />
          </font></Label>
       <Button layoutX="701.0" layoutY="1.0" mnemonicParsing="false" onAction="#exxit" prefHeight="26.0" prefWidth="58.0" style="-fx-background-color: #b3cccc; -fx-border-color: black;" text="EXIT" />
       <ComboBox fx:id="combobox" layoutX="317.0" layoutY="320.0" prefHeight="26.0" prefWidth="180.0" promptText="Gender" />

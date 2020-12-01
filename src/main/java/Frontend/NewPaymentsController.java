@@ -37,7 +37,7 @@ public class NewPaymentsController implements Initializable{
     private TableColumn<payments, Integer> col_meterId;
 
     @FXML
-    private TableColumn<payments, Integer> col_amount;
+    private TableColumn<payments, Double> col_amount;
 
     @FXML
     private Label statuslbl;
@@ -75,29 +75,31 @@ public class NewPaymentsController implements Initializable{
 	    	}
 	    	meterId.setText(col_meterId.getCellData(index).toString());
 	    	amount.setText(col_amount.getCellData(index).toString());
+	    	statuslbl.setText("One ID selected");
+	    	
 	  
     }
 
     @FXML
     void approve(ActionEvent event) throws ClassNotFoundException {
     	try {
-    		
+    		if(meterId.getText().trim().isEmpty())
+    			statuslbl.setText("Select a query first");
     		adminPanelDao.executingAmount(Integer.parseInt(meterId.getText()));
             conn = connection.createConnection();
 			ps = conn.prepareStatement("delete from newPayments where meterId = ? and amount = ? ");
 			ps.setInt(1, col_meterId.getCellData(index));
-			ps.setInt(2, col_amount.getCellData(index));
+			ps.setDouble(2, col_amount.getCellData(index));
 			ps.executeUpdate();
-			statuslbl.setText("approved");
+			statuslbl.setText("Approved");
 			Update();
-		    
+		    index=-1;
 			amount.setText("");
 			meterId.setText("");
-    		
 			conn.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			statuslbl.setText("error");
+			statuslbl.setText("Select a column first");
 		}
 
     }
@@ -138,7 +140,7 @@ public class NewPaymentsController implements Initializable{
     
     public void Update() throws ClassNotFoundException, SQLException {
     	col_meterId.setCellValueFactory(new PropertyValueFactory<payments, Integer>("meterId"));
-		col_amount.setCellValueFactory(new PropertyValueFactory<payments, Integer>("amount"));
+		col_amount.setCellValueFactory(new PropertyValueFactory<payments, Double>("amount"));
 		
 		listM = adminPanelDao.getDatapayments();
 		table_payments.setItems(listM);

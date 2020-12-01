@@ -2,7 +2,7 @@ package Frontend;
 
 public class payments {
 	int meterId;
-	int amount;
+	double amount;
 	
 	
 	public int getMeterId() {
@@ -19,14 +19,14 @@ public class payments {
 		this.amount = amount;
 	}
 
-	public int getAmount() {
+	public double getAmount() {
 		return amount;
 	}
 
-	public payments(int meterId, int amount) {
+	public payments(int meterId, double d) {
 		super();
 		this.meterId = meterId;
-		this.amount = amount;
+		this.amount = d;
 	
 	}
 

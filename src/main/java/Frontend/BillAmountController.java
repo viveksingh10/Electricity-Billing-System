@@ -8,9 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
-
 import DB.adminPanelDao;
-import DB.connection;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -37,7 +35,7 @@ public class BillAmountController implements Initializable {
     private TableColumn<amount, Integer> col_meterId;
 
     @FXML
-    private TableColumn<amount, Integer> col_amount;
+    private TableColumn<amount, Double> col_amount;
 
     @FXML
     private Label statuslbl;
@@ -75,6 +73,7 @@ public class BillAmountController implements Initializable {
 	    	}
 	    	meterId.setText(col_meterId.getCellData(index).toString());
 	    	amount.setText(col_amount.getCellData(index).toString());
+	    	statuslbl.setText("One meterID selected");
 	  
     }
     
@@ -114,7 +113,7 @@ public class BillAmountController implements Initializable {
     
     public void Update() throws ClassNotFoundException, SQLException {
     	col_meterId.setCellValueFactory(new PropertyValueFactory<amount, Integer>("meterId"));
-		col_amount.setCellValueFactory(new PropertyValueFactory<amount, Integer>("amount"));
+		col_amount.setCellValueFactory(new PropertyValueFactory<amount, Double>("amount"));
 		
 		listM = adminPanelDao.getDatapendingbill();
 		table_pendingbill.setItems(listM);
@@ -126,6 +125,8 @@ public class BillAmountController implements Initializable {
          statuslbl.setText("Select one meterId first");
       else
     	  statuslbl.setText("Email sent to the user.");
+          meterId.setText("");
+          amount.setText("");
       
     }
 

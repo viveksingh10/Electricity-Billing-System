@@ -40,7 +40,7 @@ public double getBillAmount(int meterID) throws SQLException, ClassNotFoundExcep
 	return amount;
 	
 }
-public static void insertUser( String firstname , String lastname, int meterId , String username , String password , String email , String gender , String addharUid , int billAmount ) throws SQLException, ClassNotFoundException {
+public static void insertUser( String firstname , String lastname, int meterId , String username , String password , String email , String gender , String addharUid , double billAmount ) throws SQLException, ClassNotFoundException {
 Connection con = connection.createConnection();
 String query = "INSERT INTO user VALUES(\"" + firstname + "\",\"" + lastname +  "\"," +  meterId + ",\"" + username + "\",\"" + password + "\",\"" + email + "\",\"" + gender + "\",\"" + addharUid + "\"," + billAmount+ ")" ;
 PreparedStatement pt = con.prepareStatement(query);
@@ -64,26 +64,26 @@ public static void userComplaint(int meterId , String type , String remark) thro
 	pt.executeUpdate();
 }
 
-public static void newPayments(int meterId, int billAmount) throws SQLException, ClassNotFoundException {
+public static void newPayments(int meterId, double d) throws SQLException, ClassNotFoundException {
 	Connection con =connection.createConnection();
-   	String query = "INSERT INTO newPayments VALUES(" + meterId + "," +  billAmount + ")" ;
+   	String query = "INSERT INTO newPayments VALUES(" + meterId + "," +  d + ")" ;
 		PreparedStatement pstmt = con.prepareStatement(query);
 		pstmt.executeUpdate();
 	}
-public static void addBill(int meterId , int billAmount) throws ClassNotFoundException, SQLException {
+public static void addBill(int meterId , double d) throws ClassNotFoundException, SQLException {
 	Connection con = connection.createConnection();
 	String query1 ="SELECT * from user where meterId =" + meterId ;
 	Statement st = con.createStatement();
 	ResultSet rs = st.executeQuery(query1);
-	int amount =0;
+	double amount =0;
 	while(rs.next()) {
-	 amount = rs.getInt("billAmount");
+	 amount = rs.getDouble("billAmount");
 	}
 	//amount += billAmount;
 	if(amount != 0) {
-		amount += billAmount;
+		amount += d;
 	}else {
-		amount = billAmount;
+		amount = d;
 	}
 	 String query2 = "UPDATE user " + "SET billAmount =  " + amount + " WHERE meterId = " + meterId ;
 	 st.executeUpdate(query2);
