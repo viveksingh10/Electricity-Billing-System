@@ -148,7 +148,7 @@ public class AdminComplaintController implements Initializable{
 					 "-fx-background-color:  #ffb3b3;"
 					 + "-fx-text-fill: red;"
 				);
-				statuslbl.setText("Select a column first");
+				statuslbl.setText("Invalid Move");
 			}
 
 	    }
@@ -184,7 +184,7 @@ public class AdminComplaintController implements Initializable{
 	    }
 
 	    @FXML
-	    void update(ActionEvent event) {
+	    void update(ActionEvent event) throws ClassNotFoundException {
 
 	    	try {
 	    		
@@ -220,7 +220,7 @@ public class AdminComplaintController implements Initializable{
 					 "-fx-background-color:   #ffb3b3;"
 					 + "-fx-text-fill: red;"
 				);
-	    		statuslbl.setText("Select a column first");
+	    		statuslbl.setText("Invalid Move");
 	    	}
 	    }
 
